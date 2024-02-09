@@ -1,0 +1,7 @@
+{
+    "packageName": "kong_admin_client",
+    "packageVersion": "3.5.0",
+    "projectName": "KongAdminClient",
+    "packageUrl": "https://github.com/PrivateAIM/kong-admin-python-client",
+    "hideGenerationTimestamp": true
+}
