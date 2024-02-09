@@ -3,9 +3,8 @@ name = "kong_admin_client"
 version = "3.5.0"
 description = "Kong Admin API"
 authors = ["Kong Inc <docs@konghq.com>"]
-license = "Apache 2.0"
 readme = "README.md"
-repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
+repository = "https://github.com/PrivateAIM/kong-admin-python-client"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Kong Admin API"]
 include = ["kong_admin_client/py.typed"]
 
