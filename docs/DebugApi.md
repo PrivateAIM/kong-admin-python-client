@@ -21,8 +21,6 @@ Retrieve the current log level of a node.  See the [NGINX documentation](http://
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.get_debug_node_log_level200_response import GetDebugNodeLogLevel200Response
 from kong_admin_client.rest import ApiException
@@ -87,8 +85,6 @@ Change the log level of all Control Plane nodes deployed in Hybrid (CP/DP) clust
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.put_debug_cluster_control_planes_nodes_log_level_log_level200_response import PutDebugClusterControlPlanesNodesLogLevelLogLevel200Response
 from kong_admin_client.rest import ApiException
@@ -157,8 +153,6 @@ Change the log level of all nodes in a cluster.    See the [NGINX docs](http://n
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.put_debug_cluster_log_level_log_level200_response import PutDebugClusterLogLevelLogLevel200Response
 from kong_admin_client.rest import ApiException
@@ -227,8 +221,6 @@ Change the log level of a node.  See the [NGINX documentation](http://nginx.org/
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.put_debug_node_log_level_log_level200_response import PutDebugNodeLogLevelLogLevel200Response
 from kong_admin_client.rest import ApiException

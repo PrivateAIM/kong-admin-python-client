@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from pydantic import BaseModel, StrictFloat, StrictInt, StrictStr
-from pydantic import Field
 from kong_admin_client.models.target_upstream import TargetUpstream
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Target(BaseModel):
     """
@@ -57,7 +53,7 @@ class Target(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Target from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -71,10 +67,12 @@ class Target(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of upstream
@@ -83,7 +81,7 @@ class Target(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Target from a dict"""
         if obj is None:
             return None
@@ -96,7 +94,7 @@ class Target(BaseModel):
             "id": obj.get("id"),
             "tags": obj.get("tags"),
             "target": obj.get("target"),
-            "upstream": TargetUpstream.from_dict(obj.get("upstream")) if obj.get("upstream") is not None else None,
+            "upstream": TargetUpstream.from_dict(obj["upstream"]) if obj.get("upstream") is not None else None,
             "weight": obj.get("weight") if obj.get("weight") is not None else 100
         })
         return _obj

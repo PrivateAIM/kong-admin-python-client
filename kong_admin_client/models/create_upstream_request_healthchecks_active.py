@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, field_validator
-from pydantic import Field
 from kong_admin_client.models.create_upstream_request_healthchecks_active_healthy import CreateUpstreamRequestHealthchecksActiveHealthy
 from kong_admin_client.models.create_upstream_request_healthchecks_active_unhealthy import CreateUpstreamRequestHealthchecksActiveUnhealthy
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CreateUpstreamRequestHealthchecksActive(BaseModel):
     """
@@ -50,7 +46,7 @@ class CreateUpstreamRequestHealthchecksActive(BaseModel):
         if value is None:
             return value
 
-        if value not in ('tcp', 'http', 'https', 'grpc', 'grpcs'):
+        if value not in set(['tcp', 'http', 'https', 'grpc', 'grpcs']):
             raise ValueError("must be one of enum values ('tcp', 'http', 'https', 'grpc', 'grpcs')")
         return value
 
@@ -71,7 +67,7 @@ class CreateUpstreamRequestHealthchecksActive(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CreateUpstreamRequestHealthchecksActive from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -85,10 +81,12 @@ class CreateUpstreamRequestHealthchecksActive(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of healthy
@@ -100,7 +98,7 @@ class CreateUpstreamRequestHealthchecksActive(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CreateUpstreamRequestHealthchecksActive from a dict"""
         if obj is None:
             return None
@@ -110,8 +108,8 @@ class CreateUpstreamRequestHealthchecksActive(BaseModel):
 
         _obj = cls.model_validate({
             "https_verify_certificate": obj.get("https_verify_certificate"),
-            "healthy": CreateUpstreamRequestHealthchecksActiveHealthy.from_dict(obj.get("healthy")) if obj.get("healthy") is not None else None,
-            "unhealthy": CreateUpstreamRequestHealthchecksActiveUnhealthy.from_dict(obj.get("unhealthy")) if obj.get("unhealthy") is not None else None,
+            "healthy": CreateUpstreamRequestHealthchecksActiveHealthy.from_dict(obj["healthy"]) if obj.get("healthy") is not None else None,
+            "unhealthy": CreateUpstreamRequestHealthchecksActiveUnhealthy.from_dict(obj["unhealthy"]) if obj.get("unhealthy") is not None else None,
             "type": obj.get("type") if obj.get("type") is not None else 'http',
             "concurrency": obj.get("concurrency") if obj.get("concurrency") is not None else 10,
             "headers": obj.get("headers"),

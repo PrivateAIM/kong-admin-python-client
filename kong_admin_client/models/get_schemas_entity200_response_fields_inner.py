@@ -18,14 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel
+from typing import Any, ClassVar, Dict, List, Optional
 from kong_admin_client.models.get_schemas_entity200_response_fields_inner_id import GetSchemasEntity200ResponseFieldsInnerId
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class GetSchemasEntity200ResponseFieldsInner(BaseModel):
     """
@@ -51,7 +48,7 @@ class GetSchemasEntity200ResponseFieldsInner(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of GetSchemasEntity200ResponseFieldsInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -65,10 +62,12 @@ class GetSchemasEntity200ResponseFieldsInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of id
@@ -77,7 +76,7 @@ class GetSchemasEntity200ResponseFieldsInner(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of GetSchemasEntity200ResponseFieldsInner from a dict"""
         if obj is None:
             return None
@@ -86,7 +85,7 @@ class GetSchemasEntity200ResponseFieldsInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": GetSchemasEntity200ResponseFieldsInnerId.from_dict(obj.get("id")) if obj.get("id") is not None else None
+            "id": GetSchemasEntity200ResponseFieldsInnerId.from_dict(obj["id"]) if obj.get("id") is not None else None
         })
         return _obj
 

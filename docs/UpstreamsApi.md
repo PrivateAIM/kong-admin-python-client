@@ -23,8 +23,6 @@ Create a new Upstream
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_upstream_request import CreateUpstreamRequest
 from kong_admin_client.models.upstream import Upstream
@@ -95,8 +93,6 @@ Delete an Upstream
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -162,8 +158,6 @@ Get an Upstream using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.upstream import Upstream
 from kong_admin_client.rest import ApiException
@@ -233,8 +227,6 @@ List all registered upstreams. You can filter the results by pagination size, of
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_upstream200_response import ListUpstream200Response
 from kong_admin_client.rest import ApiException
@@ -307,8 +299,6 @@ Update an Upstream
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_upstream_request import CreateUpstreamRequest
 from kong_admin_client.models.upstream import Upstream
@@ -382,8 +372,6 @@ Create or Update Upstream using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_upstream_request import CreateUpstreamRequest
 from kong_admin_client.models.upstream import Upstream

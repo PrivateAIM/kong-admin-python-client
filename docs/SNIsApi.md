@@ -29,8 +29,6 @@ Create a new SNI
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_sni_for_certificate_request import CreateSniForCertificateRequest
 from kong_admin_client.models.get_sni_with_certificate200_response import GetSniWithCertificate200Response
@@ -101,8 +99,6 @@ Create a new SNI and associate it with a certificate in the system. Use this end
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_sni_for_certificate_request import CreateSniForCertificateRequest
 from kong_admin_client.models.sni import SNI
@@ -175,8 +171,6 @@ Delete an SNI
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -242,8 +236,6 @@ Delete a an SNI associated with a Certificate using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -311,8 +303,6 @@ Get an SNI associated with a Certificate using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.sni import SNI
 from kong_admin_client.rest import ApiException
@@ -384,8 +374,6 @@ Get an SNI using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.get_sni_with_certificate200_response import GetSniWithCertificate200Response
 from kong_admin_client.rest import ApiException
@@ -455,8 +443,6 @@ Retrieve a paginated list of all SNIs associated with a certificate. Use this en
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.get_sni_with_certificate200_response import GetSniWithCertificate200Response
 from kong_admin_client.rest import ApiException
@@ -531,8 +517,6 @@ List all SNIs
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.get_sni_with_certificate200_response import GetSniWithCertificate200Response
 from kong_admin_client.rest import ApiException
@@ -605,8 +589,6 @@ Update an SNI
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_sni_for_certificate_request import CreateSniForCertificateRequest
 from kong_admin_client.models.get_sni_with_certificate200_response import GetSniWithCertificate200Response
@@ -680,8 +662,6 @@ Update SNI associated to a certificate
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_sni_for_certificate_request import CreateSniForCertificateRequest
 from kong_admin_client.models.sni import SNI
@@ -757,8 +737,6 @@ Create or Update SNI using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_sni_for_certificate_request import CreateSniForCertificateRequest
 from kong_admin_client.models.get_sni_with_certificate200_response import GetSniWithCertificate200Response
@@ -831,8 +809,6 @@ Create or Update an SNI associated with a Certificate using ID or name.  Inserts
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_sni_for_certificate_request import CreateSniForCertificateRequest
 from kong_admin_client.models.sni import SNI

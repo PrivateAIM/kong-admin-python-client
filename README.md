@@ -54,7 +54,6 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```python
 
-import time
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint

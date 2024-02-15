@@ -12,30 +12,20 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictStr
 
+from pydantic import Field, StrictStr
 from typing import Optional
-
+from typing_extensions import Annotated
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.list_plugins_for_consumer200_response import ListPluginsForConsumer200Response
 from kong_admin_client.models.list_plugins_for_route200_response import ListPluginsForRoute200Response
 from kong_admin_client.models.plugin import Plugin
 
-from kong_admin_client.api_client import ApiClient
+from kong_admin_client.api_client import ApiClient, RequestSerialized
 from kong_admin_client.api_response import ApiResponse
 from kong_admin_client.rest import RESTResponseType
 
@@ -260,7 +250,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -546,7 +536,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -834,7 +824,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1122,7 +1112,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1394,7 +1384,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1658,7 +1648,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1924,7 +1914,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2190,7 +2180,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2459,7 +2449,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2734,7 +2724,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -3009,7 +2999,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -3271,7 +3261,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -3567,7 +3557,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -3862,7 +3852,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -4168,7 +4158,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -4476,7 +4466,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -4764,7 +4754,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -5068,7 +5058,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -5374,7 +5364,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -5680,7 +5670,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -5970,7 +5960,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -6271,7 +6261,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -6571,7 +6561,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -6874,7 +6864,7 @@ class PluginsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

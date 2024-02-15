@@ -28,8 +28,6 @@ List all available endpoints provided by the Admin API.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.get_endpoints200_response import GetEndpoints200Response
 from kong_admin_client.rest import ApiException
@@ -94,8 +92,6 @@ Retrieve the schema of an entity. This is useful to understand what fields an en
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.get_schemas_entity200_response import GetSchemasEntity200Response
 from kong_admin_client.rest import ApiException
@@ -164,8 +160,6 @@ Retrieve the JSON Schema of a Proxy-Wasm filter's configuration. This is useful 
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -233,8 +227,6 @@ Retrieve the schema of a plugin's configuration. This is useful to understand wh
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -300,8 +292,6 @@ Retrieve the schema of a vault.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.vault import Vault
 from kong_admin_client.rest import ApiException
@@ -371,8 +361,6 @@ Retrieve usage information about a node, with some basic information about the c
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.get_status200_response import GetStatus200Response
 from kong_admin_client.rest import ApiException
@@ -437,8 +425,6 @@ Retrieve runtime stats data from [lua-resty-timer-ng](https://github.com/Kong/lu
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.get_timers200_response import GetTimers200Response
 from kong_admin_client.rest import ApiException
@@ -503,8 +489,6 @@ Similar to `HTTP` GET, but does not return the body. Returns HTTP 200 when the e
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -571,8 +555,6 @@ List all the supported HTTP methods by an endpoint. This can also be used with a
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -639,8 +621,6 @@ Check validity of a configuration against its entity schema. This allows you to 
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.post_schemas_entity_validate200_response import PostSchemasEntityValidate200Response
 from kong_admin_client.rest import ApiException
@@ -709,8 +689,6 @@ Check validity of a plugin configuration against the plugins entity schema. This
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.post_schemas_plugins_validate200_response import PostSchemasPluginsValidate200Response
 from kong_admin_client.rest import ApiException

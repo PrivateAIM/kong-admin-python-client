@@ -19,8 +19,6 @@ Returns a paginated list of all the tags in the system.  The list of entities wi
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.get_tags200_response import GetTags200Response
 from kong_admin_client.rest import ApiException
@@ -85,8 +83,6 @@ Returns the entities that have been tagged with the specified tag.  The list of 
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.get_tags200_response import GetTags200Response
 from kong_admin_client.rest import ApiException

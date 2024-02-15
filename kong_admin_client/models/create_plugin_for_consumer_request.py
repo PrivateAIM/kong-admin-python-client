@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from kong_admin_client.models.list_plugins_for_consumer200_response_config import ListPluginsForConsumer200ResponseConfig
 from kong_admin_client.models.list_plugins_for_consumer200_response_ordering import ListPluginsForConsumer200ResponseOrdering
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CreatePluginForConsumerRequest(BaseModel):
     """
@@ -52,7 +48,7 @@ class CreatePluginForConsumerRequest(BaseModel):
             return value
 
         for i in value:
-            if i not in ('http', 'grpc', 'grpcs', 'tls', 'tcp'):
+            if i not in set(['http', 'grpc', 'grpcs', 'tls', 'tcp']):
                 raise ValueError("each list item must be one of ('http', 'grpc', 'grpcs', 'tls', 'tcp')")
         return value
 
@@ -73,7 +69,7 @@ class CreatePluginForConsumerRequest(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CreatePluginForConsumerRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -87,10 +83,12 @@ class CreatePluginForConsumerRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of config
@@ -117,7 +115,7 @@ class CreatePluginForConsumerRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CreatePluginForConsumerRequest from a dict"""
         if obj is None:
             return None
@@ -131,11 +129,11 @@ class CreatePluginForConsumerRequest(BaseModel):
             "service": obj.get("service"),
             "consumer": obj.get("consumer"),
             "instance_name": obj.get("instance_name"),
-            "config": ListPluginsForConsumer200ResponseConfig.from_dict(obj.get("config")) if obj.get("config") is not None else None,
+            "config": ListPluginsForConsumer200ResponseConfig.from_dict(obj["config"]) if obj.get("config") is not None else None,
             "protocols": obj.get("protocols"),
             "enabled": obj.get("enabled") if obj.get("enabled") is not None else True,
             "tags": obj.get("tags"),
-            "ordering": ListPluginsForConsumer200ResponseOrdering.from_dict(obj.get("ordering")) if obj.get("ordering") is not None else None
+            "ordering": ListPluginsForConsumer200ResponseOrdering.from_dict(obj["ordering"]) if obj.get("ordering") is not None else None
         })
         return _obj
 

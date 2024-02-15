@@ -23,8 +23,6 @@ This API endpoint allows you to create a new key. When the request is successful
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_key_request import CreateKeyRequest
 from kong_admin_client.models.key import Key
@@ -95,8 +93,6 @@ Delete a Key
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -162,8 +158,6 @@ Get a Key using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.key import Key
 from kong_admin_client.rest import ApiException
@@ -233,8 +227,6 @@ List all Keys
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_key200_response import ListKey200Response
 from kong_admin_client.rest import ApiException
@@ -307,8 +299,6 @@ Update a Key
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_key_request import CreateKeyRequest
 from kong_admin_client.models.key import Key
@@ -382,8 +372,6 @@ Create or Update Key using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_key_request import CreateKeyRequest
 from kong_admin_client.models.key import Key

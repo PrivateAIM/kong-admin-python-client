@@ -23,8 +23,6 @@ This endpoint allows creating a new Key-set by sending a JSON object that descri
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_key_set_request import CreateKeySetRequest
 from kong_admin_client.models.list_key_set200_response import ListKeySet200Response
@@ -95,8 +93,6 @@ Delete a Key-set  > Note: This API is not available in DB-less mode.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -162,8 +158,6 @@ This endpoint retrieves information about a specific key-set based on its ID or 
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_key_set200_response import ListKeySet200Response
 from kong_admin_client.rest import ApiException
@@ -233,8 +227,6 @@ Retrieve a list of all Key-sets in the system. A Key Set object holds a collecti
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_key_set200_response import ListKeySet200Response
 from kong_admin_client.rest import ApiException
@@ -307,8 +299,6 @@ Update a Key-set using ID or name.  > Note: This API is not available in DB-less
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_key_set_request import CreateKeySetRequest
 from kong_admin_client.models.list_key_set200_response import ListKeySet200Response
@@ -382,8 +372,6 @@ Update a Key-set using ID or name.  > Note: This API is not available in DB-less
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_key_set_request import CreateKeySetRequest
 from kong_admin_client.models.list_key_set200_response import ListKeySet200Response

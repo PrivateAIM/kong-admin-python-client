@@ -23,8 +23,6 @@ Create a new certificate with the provided details. Use this endpoint to add a n
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.certificate import Certificate
 from kong_admin_client.models.create_certificate_request import CreateCertificateRequest
@@ -95,8 +93,6 @@ Delete a Certificate  >Note: This API is not available in DB-less mode.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -162,8 +158,6 @@ Retrieve details about the specified certificate using the provided path paramet
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.certificate import Certificate
 from kong_admin_client.rest import ApiException
@@ -233,8 +227,6 @@ Retrieve a list of all available CA Certificate Authority (CA) certificates. You
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_certificate200_response import ListCertificate200Response
 from kong_admin_client.rest import ApiException
@@ -307,8 +299,6 @@ Update a Certificate  Inserts (or replaces) the certificate under the requested 
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.certificate import Certificate
 from kong_admin_client.models.create_certificate_request import CreateCertificateRequest
@@ -382,8 +372,6 @@ Update details about the specified certificate using the provided path parameter
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.certificate import Certificate
 from kong_admin_client.models.create_certificate_request import CreateCertificateRequest

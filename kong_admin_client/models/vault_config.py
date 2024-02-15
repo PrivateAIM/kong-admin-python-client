@@ -18,14 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr, field_validator
-from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class VaultConfig(BaseModel):
     """
@@ -40,7 +36,7 @@ class VaultConfig(BaseModel):
         if value is None:
             return value
 
-        if value not in ('vaults.config.resurrect_ttl', 'vaults.config.neg_ttl', 'vaults.config.ttl'):
+        if value not in set(['vaults.config.resurrect_ttl', 'vaults.config.neg_ttl', 'vaults.config.ttl']):
             raise ValueError("must be one of enum values ('vaults.config.resurrect_ttl', 'vaults.config.neg_ttl', 'vaults.config.ttl')")
         return value
 
@@ -61,7 +57,7 @@ class VaultConfig(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of VaultConfig from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -75,16 +71,18 @@ class VaultConfig(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of VaultConfig from a dict"""
         if obj is None:
             return None

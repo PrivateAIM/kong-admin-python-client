@@ -29,8 +29,6 @@ Create a new route
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_route_request import CreateRouteRequest
 from kong_admin_client.models.route import Route
@@ -101,8 +99,6 @@ Create a new route associated with a service
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_route_request import CreateRouteRequest
 from kong_admin_client.models.route import Route
@@ -175,8 +171,6 @@ Delete a route   > Note: This API is not available in DB-less mode.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -242,8 +236,6 @@ Delete a route associated with a service using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -311,8 +303,6 @@ Get a route associated with a service using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.route import Route
 from kong_admin_client.rest import ApiException
@@ -384,8 +374,6 @@ Get a route using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.route import Route
 from kong_admin_client.rest import ApiException
@@ -455,8 +443,6 @@ List all routes  route entities define rules to match client requests. Each rout
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_route200_response import ListRoute200Response
 from kong_admin_client.rest import ApiException
@@ -529,8 +515,6 @@ List all routes associated with a service
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_route200_response import ListRoute200Response
 from kong_admin_client.rest import ApiException
@@ -605,8 +589,6 @@ Update a route  > Note: This API is not available in DB-less mode.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_route_request import CreateRouteRequest
 from kong_admin_client.models.route import Route
@@ -680,8 +662,6 @@ Update a route associated with a service using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_route_request import CreateRouteRequest
 from kong_admin_client.models.route import Route
@@ -757,8 +737,6 @@ Create or Update route using ID or name.   > Note: This API is not available in 
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_route_request import CreateRouteRequest
 from kong_admin_client.models.route import Route
@@ -831,8 +809,6 @@ Create or Update a route associated with a service using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_route_request import CreateRouteRequest
 from kong_admin_client.models.route import Route

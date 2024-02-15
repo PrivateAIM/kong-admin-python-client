@@ -18,18 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, field_validator
-from pydantic import Field
 from kong_admin_client.models.create_route_request_destinations_inner import CreateRouteRequestDestinationsInner
 from kong_admin_client.models.create_route_request_headers import CreateRouteRequestHeaders
 from kong_admin_client.models.create_route_request_service import CreateRouteRequestService
 from kong_admin_client.models.create_route_request_sources_inner import CreateRouteRequestSourcesInner
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CreateRouteRequest(BaseModel):
     """
@@ -58,7 +54,7 @@ class CreateRouteRequest(BaseModel):
     @field_validator('https_redirect_status_code')
     def https_redirect_status_code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in (426, 301, 302, 307, 308):
+        if value not in set([426, 301, 302, 307, 308]):
             raise ValueError("must be one of enum values (426, 301, 302, 307, 308)")
         return value
 
@@ -68,7 +64,7 @@ class CreateRouteRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in ('v1', 'v0'):
+        if value not in set(['v1', 'v0']):
             raise ValueError("must be one of enum values ('v1', 'v0')")
         return value
 
@@ -89,7 +85,7 @@ class CreateRouteRequest(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CreateRouteRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -103,10 +99,12 @@ class CreateRouteRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of headers
@@ -132,7 +130,7 @@ class CreateRouteRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CreateRouteRequest from a dict"""
         if obj is None:
             return None
@@ -146,7 +144,7 @@ class CreateRouteRequest(BaseModel):
             "methods": obj.get("methods"),
             "hosts": obj.get("hosts"),
             "paths": obj.get("paths"),
-            "headers": CreateRouteRequestHeaders.from_dict(obj.get("headers")) if obj.get("headers") is not None else None,
+            "headers": CreateRouteRequestHeaders.from_dict(obj["headers"]) if obj.get("headers") is not None else None,
             "https_redirect_status_code": obj.get("https_redirect_status_code") if obj.get("https_redirect_status_code") is not None else 426,
             "regex_priority": obj.get("regex_priority") if obj.get("regex_priority") is not None else 0,
             "strip_path": obj.get("strip_path") if obj.get("strip_path") is not None else True,
@@ -155,10 +153,10 @@ class CreateRouteRequest(BaseModel):
             "request_buffering": obj.get("request_buffering") if obj.get("request_buffering") is not None else True,
             "response_buffering": obj.get("response_buffering") if obj.get("response_buffering") is not None else True,
             "snis": obj.get("snis"),
-            "sources": [CreateRouteRequestSourcesInner.from_dict(_item) for _item in obj.get("sources")] if obj.get("sources") is not None else None,
-            "destinations": [CreateRouteRequestDestinationsInner.from_dict(_item) for _item in obj.get("destinations")] if obj.get("destinations") is not None else None,
+            "sources": [CreateRouteRequestSourcesInner.from_dict(_item) for _item in obj["sources"]] if obj.get("sources") is not None else None,
+            "destinations": [CreateRouteRequestDestinationsInner.from_dict(_item) for _item in obj["destinations"]] if obj.get("destinations") is not None else None,
             "tags": obj.get("tags"),
-            "service": CreateRouteRequestService.from_dict(obj.get("service")) if obj.get("service") is not None else None
+            "service": CreateRouteRequestService.from_dict(obj["service"]) if obj.get("service") is not None else None
         })
         return _obj
 

@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt, StrictStr
-from pydantic import Field
 from kong_admin_client.models.key_pem import KeyPem
 from kong_admin_client.models.key_set import KeySet
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Key(BaseModel):
     """
@@ -61,7 +57,7 @@ class Key(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Key from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -75,10 +71,12 @@ class Key(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of pem
@@ -90,7 +88,7 @@ class Key(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Key from a dict"""
         if obj is None:
             return None
@@ -104,8 +102,8 @@ class Key(BaseModel):
             "jwk": obj.get("jwk"),
             "kid": obj.get("kid"),
             "name": obj.get("name"),
-            "pem": KeyPem.from_dict(obj.get("pem")) if obj.get("pem") is not None else None,
-            "set": KeySet.from_dict(obj.get("set")) if obj.get("set") is not None else None,
+            "pem": KeyPem.from_dict(obj["pem"]) if obj.get("pem") is not None else None,
+            "set": KeySet.from_dict(obj["set"]) if obj.get("set") is not None else None,
             "tags": obj.get("tags"),
             "updated_at": obj.get("updated_at")
         })

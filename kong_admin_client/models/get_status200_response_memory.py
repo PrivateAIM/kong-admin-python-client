@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel
-from pydantic import Field
 from kong_admin_client.models.get_status200_response_memory_lua_shared_dicts import GetStatus200ResponseMemoryLuaSharedDicts
 from kong_admin_client.models.get_status200_response_memory_workers_lua_vms_inner import GetStatus200ResponseMemoryWorkersLuaVmsInner
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class GetStatus200ResponseMemory(BaseModel):
     """
@@ -54,7 +50,7 @@ class GetStatus200ResponseMemory(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of GetStatus200ResponseMemory from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,10 +64,12 @@ class GetStatus200ResponseMemory(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of lua_shared_dicts
@@ -87,7 +85,7 @@ class GetStatus200ResponseMemory(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of GetStatus200ResponseMemory from a dict"""
         if obj is None:
             return None
@@ -96,8 +94,8 @@ class GetStatus200ResponseMemory(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "lua_shared_dicts": GetStatus200ResponseMemoryLuaSharedDicts.from_dict(obj.get("lua_shared_dicts")) if obj.get("lua_shared_dicts") is not None else None,
-            "workers_lua_vms": [GetStatus200ResponseMemoryWorkersLuaVmsInner.from_dict(_item) for _item in obj.get("workers_lua_vms")] if obj.get("workers_lua_vms") is not None else None
+            "lua_shared_dicts": GetStatus200ResponseMemoryLuaSharedDicts.from_dict(obj["lua_shared_dicts"]) if obj.get("lua_shared_dicts") is not None else None,
+            "workers_lua_vms": [GetStatus200ResponseMemoryWorkersLuaVmsInner.from_dict(_item) for _item in obj["workers_lua_vms"]] if obj.get("workers_lua_vms") is not None else None
         })
         return _obj
 

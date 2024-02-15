@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
-from pydantic import Field
 from kong_admin_client.models.filter_chain_filters_inner import FilterChainFiltersInner
 from kong_admin_client.models.filter_chain_route import FilterChainRoute
 from kong_admin_client.models.filter_chain_service import FilterChainService
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class FilterChain(BaseModel):
     """
@@ -62,7 +58,7 @@ class FilterChain(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of FilterChain from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -76,10 +72,12 @@ class FilterChain(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in filters (list)
@@ -98,7 +96,7 @@ class FilterChain(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of FilterChain from a dict"""
         if obj is None:
             return None
@@ -109,11 +107,11 @@ class FilterChain(BaseModel):
         _obj = cls.model_validate({
             "created_at": obj.get("created_at"),
             "enabled": obj.get("enabled"),
-            "filters": [FilterChainFiltersInner.from_dict(_item) for _item in obj.get("filters")] if obj.get("filters") is not None else None,
+            "filters": [FilterChainFiltersInner.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None,
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "route": FilterChainRoute.from_dict(obj.get("route")) if obj.get("route") is not None else None,
-            "service": FilterChainService.from_dict(obj.get("service")) if obj.get("service") is not None else None,
+            "route": FilterChainRoute.from_dict(obj["route"]) if obj.get("route") is not None else None,
+            "service": FilterChainService.from_dict(obj["service"]) if obj.get("service") is not None else None,
             "tags": obj.get("tags"),
             "updated_at": obj.get("updated_at")
         })

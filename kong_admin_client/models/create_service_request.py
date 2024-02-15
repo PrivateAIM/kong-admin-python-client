@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, field_validator
-from pydantic import Field
 from kong_admin_client.models.create_service_request_client_certificate import CreateServiceRequestClientCertificate
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CreateServiceRequest(BaseModel):
     """
@@ -52,7 +48,7 @@ class CreateServiceRequest(BaseModel):
     @field_validator('protocol')
     def protocol_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('grpc', 'grpcs', 'http', 'https', 'tcp', 'tls ', 'tls_passthrough', 'udp', 'ws', 'wss'):
+        if value not in set(['grpc', 'grpcs', 'http', 'https', 'tcp', 'tls ', 'tls_passthrough', 'udp', 'ws', 'wss']):
             raise ValueError("must be one of enum values ('grpc', 'grpcs', 'http', 'https', 'tcp', 'tls ', 'tls_passthrough', 'udp', 'ws', 'wss')")
         return value
 
@@ -73,7 +69,7 @@ class CreateServiceRequest(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CreateServiceRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -87,15 +83,22 @@ class CreateServiceRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of client_certificate
         if self.client_certificate:
             _dict['client_certificate'] = self.client_certificate.to_dict()
+        # set to None if tls_verify (nullable) is None
+        # and model_fields_set contains the field
+        if self.tls_verify is None and "tls_verify" in self.model_fields_set:
+            _dict['tls_verify'] = None
+
         # set to None if tls_verify_depth (nullable) is None
         # and model_fields_set contains the field
         if self.tls_verify_depth is None and "tls_verify_depth" in self.model_fields_set:
@@ -104,7 +107,7 @@ class CreateServiceRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CreateServiceRequest from a dict"""
         if obj is None:
             return None
@@ -123,7 +126,7 @@ class CreateServiceRequest(BaseModel):
             "write_timeout": obj.get("write_timeout") if obj.get("write_timeout") is not None else 6000,
             "read_timeout": obj.get("read_timeout") if obj.get("read_timeout") is not None else 6000,
             "tags": obj.get("tags"),
-            "client_certificate": CreateServiceRequestClientCertificate.from_dict(obj.get("client_certificate")) if obj.get("client_certificate") is not None else None,
+            "client_certificate": CreateServiceRequestClientCertificate.from_dict(obj["client_certificate"]) if obj.get("client_certificate") is not None else None,
             "tls_verify": obj.get("tls_verify") if obj.get("tls_verify") is not None else True,
             "tls_verify_depth": obj.get("tls_verify_depth"),
             "ca_certificates": obj.get("ca_certificates"),

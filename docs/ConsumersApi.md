@@ -23,8 +23,6 @@ Create a new Consumer
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.consumer import Consumer
 from kong_admin_client.models.create_consumer_request import CreateConsumerRequest
@@ -95,8 +93,6 @@ Delete a specific consumer from the system using either the consumer ID or the c
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -162,8 +158,6 @@ Retrieve the details of a specific consumer in the system using either the consu
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.consumer import Consumer
 from kong_admin_client.rest import ApiException
@@ -233,8 +227,6 @@ Retrieve a list of all consumers.You can use query parameters to filter the resu
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_consumer200_response import ListConsumer200Response
 from kong_admin_client.rest import ApiException
@@ -307,8 +299,6 @@ Update the details of a specific consumer in the system using either the consume
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.consumer import Consumer
 from kong_admin_client.models.create_consumer_request import CreateConsumerRequest
@@ -382,8 +372,6 @@ Create or Update Consumer using ID or username. The consumer will be identified 
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_consumer_request import CreateConsumerRequest
 from kong_admin_client.models.upsert_consumer200_response import UpsertConsumer200Response

@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
-from pydantic import Field
 from kong_admin_client.models.route_destinations_inner import RouteDestinationsInner
 from kong_admin_client.models.route_service import RouteService
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Route(BaseModel):
     """
@@ -73,7 +69,7 @@ class Route(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Route from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -87,10 +83,12 @@ class Route(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in destinations (list)
@@ -113,7 +111,7 @@ class Route(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Route from a dict"""
         if obj is None:
             return None
@@ -123,7 +121,7 @@ class Route(BaseModel):
 
         _obj = cls.model_validate({
             "created_at": obj.get("created_at"),
-            "destinations": [RouteDestinationsInner.from_dict(_item) for _item in obj.get("destinations")] if obj.get("destinations") is not None else None,
+            "destinations": [RouteDestinationsInner.from_dict(_item) for _item in obj["destinations"]] if obj.get("destinations") is not None else None,
             "headers": obj.get("headers"),
             "hosts": obj.get("hosts"),
             "https_redirect_status_code": obj.get("https_redirect_status_code") if obj.get("https_redirect_status_code") is not None else 426,
@@ -137,9 +135,9 @@ class Route(BaseModel):
             "regex_priority": obj.get("regex_priority") if obj.get("regex_priority") is not None else 0,
             "request_buffering": obj.get("request_buffering") if obj.get("request_buffering") is not None else True,
             "response_buffering": obj.get("response_buffering") if obj.get("response_buffering") is not None else True,
-            "service": RouteService.from_dict(obj.get("service")) if obj.get("service") is not None else None,
+            "service": RouteService.from_dict(obj["service"]) if obj.get("service") is not None else None,
             "snis": obj.get("snis"),
-            "sources": [RouteDestinationsInner.from_dict(_item) for _item in obj.get("sources")] if obj.get("sources") is not None else None,
+            "sources": [RouteDestinationsInner.from_dict(_item) for _item in obj["sources"]] if obj.get("sources") is not None else None,
             "strip_path": obj.get("strip_path") if obj.get("strip_path") is not None else True,
             "tags": obj.get("tags"),
             "updated_at": obj.get("updated_at")

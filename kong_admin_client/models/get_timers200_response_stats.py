@@ -18,16 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel
+from typing import Any, ClassVar, Dict, List, Optional
 from kong_admin_client.models.get_timers200_response_stats_flamegraph import GetTimers200ResponseStatsFlamegraph
 from kong_admin_client.models.get_timers200_response_stats_sys import GetTimers200ResponseStatsSys
 from kong_admin_client.models.get_timers200_response_stats_timers import GetTimers200ResponseStatsTimers
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class GetTimers200ResponseStats(BaseModel):
     """
@@ -55,7 +52,7 @@ class GetTimers200ResponseStats(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of GetTimers200ResponseStats from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -69,10 +66,12 @@ class GetTimers200ResponseStats(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of sys
@@ -87,7 +86,7 @@ class GetTimers200ResponseStats(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of GetTimers200ResponseStats from a dict"""
         if obj is None:
             return None
@@ -96,9 +95,9 @@ class GetTimers200ResponseStats(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "sys": GetTimers200ResponseStatsSys.from_dict(obj.get("sys")) if obj.get("sys") is not None else None,
-            "flamegraph": GetTimers200ResponseStatsFlamegraph.from_dict(obj.get("flamegraph")) if obj.get("flamegraph") is not None else None,
-            "timers": GetTimers200ResponseStatsTimers.from_dict(obj.get("timers")) if obj.get("timers") is not None else None
+            "sys": GetTimers200ResponseStatsSys.from_dict(obj["sys"]) if obj.get("sys") is not None else None,
+            "flamegraph": GetTimers200ResponseStatsFlamegraph.from_dict(obj["flamegraph"]) if obj.get("flamegraph") is not None else None,
+            "timers": GetTimers200ResponseStatsTimers.from_dict(obj["timers"]) if obj.get("timers") is not None else None
         })
         return _obj
 

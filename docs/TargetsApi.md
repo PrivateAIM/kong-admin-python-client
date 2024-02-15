@@ -23,8 +23,6 @@ Create a new Target associated with an Upstream
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_target_for_upstream_request import CreateTargetForUpstreamRequest
 from kong_admin_client.models.target import Target
@@ -97,8 +95,6 @@ Delete a Target associated with a an Upstream using ID or target.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -166,8 +162,6 @@ Get a Target associated with an Upstream using ID or target.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.target import Target
 from kong_admin_client.rest import ApiException
@@ -239,8 +233,6 @@ List all Targets associated with a an Upstream
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_targets_for_upstream200_response import ListTargetsForUpstream200Response
 from kong_admin_client.rest import ApiException
@@ -315,8 +307,6 @@ Update a Target associated with a an Upstream using ID or target.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_target_for_upstream_request import CreateTargetForUpstreamRequest
 from kong_admin_client.models.target import Target
@@ -392,8 +382,6 @@ Create or Update a Target associated with an Upstream using ID or target.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_target_for_upstream_request import CreateTargetForUpstreamRequest
 from kong_admin_client.models.target import Target

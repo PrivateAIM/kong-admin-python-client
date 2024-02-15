@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from kong_admin_client.models.create_upstream_request_client_certificate import CreateUpstreamRequestClientCertificate
 from kong_admin_client.models.create_upstream_request_healthchecks import CreateUpstreamRequestHealthchecks
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CreateUpstreamRequest(BaseModel):
     """
@@ -60,7 +56,7 @@ class CreateUpstreamRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in ('consistent-hashing', 'least-connections', 'round-robin', 'latency'):
+        if value not in set(['consistent-hashing', 'least-connections', 'round-robin', 'latency']):
             raise ValueError("must be one of enum values ('consistent-hashing', 'least-connections', 'round-robin', 'latency')")
         return value
 
@@ -70,7 +66,7 @@ class CreateUpstreamRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in ('none', 'consumer', 'ip', 'cookie', 'uri_capture', 'path', 'query_arg'):
+        if value not in set(['none', 'consumer', 'ip', 'cookie', 'uri_capture', 'path', 'query_arg']):
             raise ValueError("must be one of enum values ('none', 'consumer', 'ip', 'cookie', 'uri_capture', 'path', 'query_arg')")
         return value
 
@@ -80,7 +76,7 @@ class CreateUpstreamRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in ('none', 'consumer', 'ip', 'cookie', 'uri_capture', 'path', 'query_arg'):
+        if value not in set(['none', 'consumer', 'ip', 'cookie', 'uri_capture', 'path', 'query_arg']):
             raise ValueError("must be one of enum values ('none', 'consumer', 'ip', 'cookie', 'uri_capture', 'path', 'query_arg')")
         return value
 
@@ -101,7 +97,7 @@ class CreateUpstreamRequest(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CreateUpstreamRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -115,10 +111,12 @@ class CreateUpstreamRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of healthchecks
@@ -130,7 +128,7 @@ class CreateUpstreamRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CreateUpstreamRequest from a dict"""
         if obj is None:
             return None
@@ -152,10 +150,10 @@ class CreateUpstreamRequest(BaseModel):
             "hash_on_uri_capture": obj.get("hash_on_uri_capture"),
             "hash_fallback_uri_capture": obj.get("hash_fallback_uri_capture"),
             "slots": obj.get("slots") if obj.get("slots") is not None else 10000,
-            "healthchecks": CreateUpstreamRequestHealthchecks.from_dict(obj.get("healthchecks")) if obj.get("healthchecks") is not None else None,
+            "healthchecks": CreateUpstreamRequestHealthchecks.from_dict(obj["healthchecks"]) if obj.get("healthchecks") is not None else None,
             "tags": obj.get("tags"),
             "host_header": obj.get("host_header"),
-            "client_certificate": CreateUpstreamRequestClientCertificate.from_dict(obj.get("client_certificate")) if obj.get("client_certificate") is not None else None,
+            "client_certificate": CreateUpstreamRequestClientCertificate.from_dict(obj["client_certificate"]) if obj.get("client_certificate") is not None else None,
             "use_srv_name": obj.get("use_srv_name")
         })
         return _obj

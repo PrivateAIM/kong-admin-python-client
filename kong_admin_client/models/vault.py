@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt, StrictStr
-from pydantic import Field
 from kong_admin_client.models.vault_config import VaultConfig
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Vault(BaseModel):
     """
@@ -59,7 +55,7 @@ class Vault(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Vault from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -73,10 +69,12 @@ class Vault(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of config
@@ -85,7 +83,7 @@ class Vault(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Vault from a dict"""
         if obj is None:
             return None
@@ -94,7 +92,7 @@ class Vault(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "config": VaultConfig.from_dict(obj.get("config")) if obj.get("config") is not None else None,
+            "config": VaultConfig.from_dict(obj["config"]) if obj.get("config") is not None else None,
             "created_at": obj.get("created_at"),
             "description": obj.get("description"),
             "id": obj.get("id"),

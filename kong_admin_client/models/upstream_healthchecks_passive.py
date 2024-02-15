@@ -18,15 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from kong_admin_client.models.upstream_healthchecks_passive_healthy import UpstreamHealthchecksPassiveHealthy
 from kong_admin_client.models.upstream_healthchecks_passive_unhealthy import UpstreamHealthchecksPassiveUnhealthy
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class UpstreamHealthchecksPassive(BaseModel):
     """
@@ -54,7 +51,7 @@ class UpstreamHealthchecksPassive(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of UpstreamHealthchecksPassive from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,10 +65,12 @@ class UpstreamHealthchecksPassive(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of healthy
@@ -83,7 +82,7 @@ class UpstreamHealthchecksPassive(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of UpstreamHealthchecksPassive from a dict"""
         if obj is None:
             return None
@@ -92,9 +91,9 @@ class UpstreamHealthchecksPassive(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "healthy": UpstreamHealthchecksPassiveHealthy.from_dict(obj.get("healthy")) if obj.get("healthy") is not None else None,
+            "healthy": UpstreamHealthchecksPassiveHealthy.from_dict(obj["healthy"]) if obj.get("healthy") is not None else None,
             "type": obj.get("type") if obj.get("type") is not None else 'http',
-            "unhealthy": UpstreamHealthchecksPassiveUnhealthy.from_dict(obj.get("unhealthy")) if obj.get("unhealthy") is not None else None
+            "unhealthy": UpstreamHealthchecksPassiveUnhealthy.from_dict(obj["unhealthy"]) if obj.get("unhealthy") is not None else None
         })
         return _obj
 

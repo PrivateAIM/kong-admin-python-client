@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
-from pydantic import Field
 from kong_admin_client.models.plugin_consumer import PluginConsumer
 from kong_admin_client.models.plugin_route import PluginRoute
 from kong_admin_client.models.plugin_service import PluginService
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Plugin(BaseModel):
     """
@@ -66,7 +62,7 @@ class Plugin(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Plugin from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -80,10 +76,12 @@ class Plugin(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of consumer
@@ -98,7 +96,7 @@ class Plugin(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Plugin from a dict"""
         if obj is None:
             return None
@@ -108,7 +106,7 @@ class Plugin(BaseModel):
 
         _obj = cls.model_validate({
             "config": obj.get("config"),
-            "consumer": PluginConsumer.from_dict(obj.get("consumer")) if obj.get("consumer") is not None else None,
+            "consumer": PluginConsumer.from_dict(obj["consumer"]) if obj.get("consumer") is not None else None,
             "created_at": obj.get("created_at"),
             "enabled": obj.get("enabled") if obj.get("enabled") is not None else True,
             "id": obj.get("id"),
@@ -116,8 +114,8 @@ class Plugin(BaseModel):
             "name": obj.get("name"),
             "ordering": obj.get("ordering"),
             "protocols": obj.get("protocols"),
-            "route": PluginRoute.from_dict(obj.get("route")) if obj.get("route") is not None else None,
-            "service": PluginService.from_dict(obj.get("service")) if obj.get("service") is not None else None,
+            "route": PluginRoute.from_dict(obj["route"]) if obj.get("route") is not None else None,
+            "service": PluginService.from_dict(obj["service"]) if obj.get("service") is not None else None,
             "tags": obj.get("tags"),
             "updated_at": obj.get("updated_at")
         })

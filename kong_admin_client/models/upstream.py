@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
-from pydantic import Field
 from kong_admin_client.models.upstream_client_certificate import UpstreamClientCertificate
 from kong_admin_client.models.upstream_healthchecks import UpstreamHealthchecks
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Upstream(BaseModel):
     """
@@ -72,7 +68,7 @@ class Upstream(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Upstream from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -86,10 +82,12 @@ class Upstream(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of client_certificate
@@ -101,7 +99,7 @@ class Upstream(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Upstream from a dict"""
         if obj is None:
             return None
@@ -111,7 +109,7 @@ class Upstream(BaseModel):
 
         _obj = cls.model_validate({
             "algorithm": obj.get("algorithm") if obj.get("algorithm") is not None else 'round-robin',
-            "client_certificate": UpstreamClientCertificate.from_dict(obj.get("client_certificate")) if obj.get("client_certificate") is not None else None,
+            "client_certificate": UpstreamClientCertificate.from_dict(obj["client_certificate"]) if obj.get("client_certificate") is not None else None,
             "created_at": obj.get("created_at"),
             "hash_fallback": obj.get("hash_fallback") if obj.get("hash_fallback") is not None else 'none',
             "hash_fallback_header": obj.get("hash_fallback_header"),
@@ -123,7 +121,7 @@ class Upstream(BaseModel):
             "hash_on_header": obj.get("hash_on_header"),
             "hash_on_query_arg": obj.get("hash_on_query_arg"),
             "hash_on_uri_capture": obj.get("hash_on_uri_capture"),
-            "healthchecks": UpstreamHealthchecks.from_dict(obj.get("healthchecks")) if obj.get("healthchecks") is not None else None,
+            "healthchecks": UpstreamHealthchecks.from_dict(obj["healthchecks"]) if obj.get("healthchecks") is not None else None,
             "host_header": obj.get("host_header"),
             "id": obj.get("id"),
             "name": obj.get("name"),

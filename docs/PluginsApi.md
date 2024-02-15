@@ -41,8 +41,6 @@ Create a new Plugin  >Note: This API is not available in DB-less mode.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.plugin import Plugin
@@ -113,8 +111,6 @@ Create a new Plugin associated with a Consumer
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.plugin import Plugin
@@ -187,8 +183,6 @@ Create a new Plugin associated with a route
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.plugin import Plugin
@@ -261,8 +255,6 @@ Create a new Plugin associated with a service
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.plugin import Plugin
@@ -335,8 +327,6 @@ Delete a Plugin
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -402,8 +392,6 @@ Delete a Plugin associated with a service using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -471,8 +459,6 @@ Delete a Plugin associated with a Consumer using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -540,8 +526,6 @@ Delete a Plugin associated with a route using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -609,8 +593,6 @@ Get a Plugin associated with a Consumer using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.plugin import Plugin
 from kong_admin_client.rest import ApiException
@@ -682,8 +664,6 @@ Get a Plugin associated with a route using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.plugin import Plugin
 from kong_admin_client.rest import ApiException
@@ -755,8 +735,6 @@ Get a Plugin associated with a service using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.plugin import Plugin
 from kong_admin_client.rest import ApiException
@@ -828,8 +806,6 @@ Get a Plugin using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.plugin import Plugin
 from kong_admin_client.rest import ApiException
@@ -899,8 +875,6 @@ List all Plugins associated with a service
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_plugins_for_route200_response import ListPluginsForRoute200Response
 from kong_admin_client.rest import ApiException
@@ -975,8 +949,6 @@ This endpoint allows you to list all the plugins. You can use query parameters t
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_plugins_for_consumer200_response import ListPluginsForConsumer200Response
 from kong_admin_client.rest import ApiException
@@ -1049,8 +1021,6 @@ Retrieve a list of all plugins associated with a consumer.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_plugins_for_consumer200_response import ListPluginsForConsumer200Response
 from kong_admin_client.rest import ApiException
@@ -1125,8 +1095,6 @@ List all Plugins associated with a route
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_plugins_for_route200_response import ListPluginsForRoute200Response
 from kong_admin_client.rest import ApiException
@@ -1201,8 +1169,6 @@ Update a Plugin
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.plugin import Plugin
@@ -1276,8 +1242,6 @@ Update a Plugin associated with a service using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.plugin import Plugin
@@ -1353,8 +1317,6 @@ Update a Plugin associated with a consumer using the consumer username or ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.list_plugins_for_consumer200_response import ListPluginsForConsumer200Response
@@ -1430,8 +1392,6 @@ Update a Plugin associated with a route using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.plugin import Plugin
@@ -1507,8 +1467,6 @@ Create or Update Plugin using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.plugin import Plugin
@@ -1581,8 +1539,6 @@ Create or Update a Plugin associated with a service using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.plugin import Plugin
@@ -1657,8 +1613,6 @@ Create or Update a Plugin associated with a Consumer using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.list_plugins_for_consumer200_response import ListPluginsForConsumer200Response
@@ -1732,8 +1686,6 @@ Create or Update a Plugin associated with a route using ID.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_plugin_for_consumer_request import CreatePluginForConsumerRequest
 from kong_admin_client.models.plugin import Plugin

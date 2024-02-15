@@ -12,28 +12,19 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictStr, field_validator
 
+from pydantic import Field, StrictStr, field_validator
+from typing_extensions import Annotated
 from kong_admin_client.models.get_debug_node_log_level200_response import GetDebugNodeLogLevel200Response
 from kong_admin_client.models.put_debug_cluster_control_planes_nodes_log_level_log_level200_response import PutDebugClusterControlPlanesNodesLogLevelLogLevel200Response
 from kong_admin_client.models.put_debug_cluster_log_level_log_level200_response import PutDebugClusterLogLevelLogLevel200Response
 from kong_admin_client.models.put_debug_node_log_level_log_level200_response import PutDebugNodeLogLevelLogLevel200Response
 
-from kong_admin_client.api_client import ApiClient
+from kong_admin_client.api_client import ApiClient, RequestSerialized
 from kong_admin_client.api_response import ApiResponse
 from kong_admin_client.rest import RESTResponseType
 
@@ -242,7 +233,7 @@ class DebugApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -497,7 +488,7 @@ class DebugApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -754,7 +745,7 @@ class DebugApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1011,7 +1002,7 @@ class DebugApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

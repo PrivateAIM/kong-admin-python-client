@@ -18,16 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel
+from typing import Any, ClassVar, Dict, List, Optional
 from kong_admin_client.models.get_status200_response_database import GetStatus200ResponseDatabase
 from kong_admin_client.models.get_status200_response_memory import GetStatus200ResponseMemory
 from kong_admin_client.models.get_status200_response_server import GetStatus200ResponseServer
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class GetStatus200Response(BaseModel):
     """
@@ -55,7 +52,7 @@ class GetStatus200Response(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of GetStatus200Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -69,10 +66,12 @@ class GetStatus200Response(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of memory
@@ -87,7 +86,7 @@ class GetStatus200Response(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of GetStatus200Response from a dict"""
         if obj is None:
             return None
@@ -96,9 +95,9 @@ class GetStatus200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "memory": GetStatus200ResponseMemory.from_dict(obj.get("memory")) if obj.get("memory") is not None else None,
-            "database": GetStatus200ResponseDatabase.from_dict(obj.get("database")) if obj.get("database") is not None else None,
-            "server": GetStatus200ResponseServer.from_dict(obj.get("server")) if obj.get("server") is not None else None
+            "memory": GetStatus200ResponseMemory.from_dict(obj["memory"]) if obj.get("memory") is not None else None,
+            "database": GetStatus200ResponseDatabase.from_dict(obj["database"]) if obj.get("database") is not None else None,
+            "server": GetStatus200ResponseServer.from_dict(obj["server"]) if obj.get("server") is not None else None
         })
         return _obj
 

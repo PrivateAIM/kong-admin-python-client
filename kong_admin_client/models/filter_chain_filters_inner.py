@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
 from kong_admin_client.models.filter_chain_filters_inner_config import FilterChainFiltersInnerConfig
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class FilterChainFiltersInner(BaseModel):
     """
@@ -54,7 +50,7 @@ class FilterChainFiltersInner(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of FilterChainFiltersInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,10 +64,12 @@ class FilterChainFiltersInner(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of config
@@ -80,7 +78,7 @@ class FilterChainFiltersInner(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of FilterChainFiltersInner from a dict"""
         if obj is None:
             return None
@@ -90,7 +88,7 @@ class FilterChainFiltersInner(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
-            "config": FilterChainFiltersInnerConfig.from_dict(obj.get("config")) if obj.get("config") is not None else None,
+            "config": FilterChainFiltersInnerConfig.from_dict(obj["config"]) if obj.get("config") is not None else None,
             "enabled": obj.get("enabled")
         })
         return _obj

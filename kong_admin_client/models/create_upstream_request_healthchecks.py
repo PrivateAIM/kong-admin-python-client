@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel
-from pydantic import Field
 from typing_extensions import Annotated
 from kong_admin_client.models.create_upstream_request_healthchecks_active import CreateUpstreamRequestHealthchecksActive
 from kong_admin_client.models.create_upstream_request_healthchecks_passive import CreateUpstreamRequestHealthchecksPassive
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CreateUpstreamRequestHealthchecks(BaseModel):
     """
@@ -56,7 +52,7 @@ class CreateUpstreamRequestHealthchecks(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CreateUpstreamRequestHealthchecks from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -70,10 +66,12 @@ class CreateUpstreamRequestHealthchecks(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of passive
@@ -85,7 +83,7 @@ class CreateUpstreamRequestHealthchecks(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CreateUpstreamRequestHealthchecks from a dict"""
         if obj is None:
             return None
@@ -94,8 +92,8 @@ class CreateUpstreamRequestHealthchecks(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "passive": CreateUpstreamRequestHealthchecksPassive.from_dict(obj.get("passive")) if obj.get("passive") is not None else None,
-            "active": CreateUpstreamRequestHealthchecksActive.from_dict(obj.get("active")) if obj.get("active") is not None else None,
+            "passive": CreateUpstreamRequestHealthchecksPassive.from_dict(obj["passive"]) if obj.get("passive") is not None else None,
+            "active": CreateUpstreamRequestHealthchecksActive.from_dict(obj["active"]) if obj.get("active") is not None else None,
             "threshold": obj.get("threshold") if obj.get("threshold") is not None else 0
         })
         return _obj

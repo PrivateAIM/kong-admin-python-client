@@ -12,24 +12,13 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictStr
 
-from typing import Any, Dict
-
+from pydantic import Field, StrictStr
+from typing_extensions import Annotated
 from kong_admin_client.models.get_endpoints200_response import GetEndpoints200Response
 from kong_admin_client.models.get_schemas_entity200_response import GetSchemasEntity200Response
 from kong_admin_client.models.get_status200_response import GetStatus200Response
@@ -38,7 +27,7 @@ from kong_admin_client.models.post_schemas_entity_validate200_response import Po
 from kong_admin_client.models.post_schemas_plugins_validate200_response import PostSchemasPluginsValidate200Response
 from kong_admin_client.models.vault import Vault
 
-from kong_admin_client.api_client import ApiClient
+from kong_admin_client.api_client import ApiClient, RequestSerialized
 from kong_admin_client.api_response import ApiResponse
 from kong_admin_client.rest import RESTResponseType
 
@@ -247,7 +236,7 @@ class InformationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -502,7 +491,7 @@ class InformationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -759,7 +748,7 @@ class InformationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1016,7 +1005,7 @@ class InformationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1270,7 +1259,7 @@ class InformationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1514,7 +1503,7 @@ class InformationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1756,7 +1745,7 @@ class InformationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2014,7 +2003,7 @@ class InformationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2268,7 +2257,7 @@ class InformationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2519,7 +2508,7 @@ class InformationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2763,7 +2752,7 @@ class InformationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

@@ -23,8 +23,6 @@ Create a new Vault
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_vault_request import CreateVaultRequest
 from kong_admin_client.models.vault import Vault
@@ -95,8 +93,6 @@ Delete a Vault
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -162,8 +158,6 @@ Get a Vault using ID or prefix.  Vault entities are used to configure different 
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.vault import Vault
 from kong_admin_client.rest import ApiException
@@ -233,8 +227,6 @@ List all Vaults
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_vault200_response import ListVault200Response
 from kong_admin_client.rest import ApiException
@@ -307,8 +299,6 @@ Update a Vault
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_vault_request import CreateVaultRequest
 from kong_admin_client.models.vault import Vault
@@ -382,8 +372,6 @@ Create or Update Vault using ID or prefix.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_vault_request import CreateVaultRequest
 from kong_admin_client.models.vault import Vault

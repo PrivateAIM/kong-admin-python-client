@@ -23,8 +23,6 @@ Create a new service
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_service_request import CreateServiceRequest
 from kong_admin_client.models.service import Service
@@ -95,8 +93,6 @@ Delete a service
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -162,8 +158,6 @@ Get a service using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.service import Service
 from kong_admin_client.rest import ApiException
@@ -233,8 +227,6 @@ List all services
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.list_service200_response import ListService200Response
 from kong_admin_client.rest import ApiException
@@ -307,8 +299,6 @@ Update a service
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_service_request import CreateServiceRequest
 from kong_admin_client.models.service import Service
@@ -382,8 +372,6 @@ Create or Update service using ID or name.
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.create_service_request import CreateServiceRequest
 from kong_admin_client.models.service import Service

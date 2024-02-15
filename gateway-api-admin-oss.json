@@ -983,7 +983,8 @@
           },
           "tls_verify": {
             "description": "Whether to enable verification of upstream server TLS certificate. If set to `null`, then the Nginx default is respected.",
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true
           },
           "tls_verify_depth": {
             "description": "Maximum depth of chain while verifying Upstream server's TLS certificate. If set to `null`, then the Nginx default is respected.'",
@@ -2546,7 +2547,8 @@
                 "tls_verify": {
                   "type": "boolean",
                   "description": "Whether to enable verification of upstream server TLS certificate. If set to null, then the Nginx default is respected.\n",
-                  "default": true
+                  "default": true,
+                  "nullable": true
                 },
                 "tls_verify_depth": {
                   "type": "string",

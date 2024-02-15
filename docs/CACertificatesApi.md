@@ -23,8 +23,6 @@ Create a new Certificate Authority (CA) certificate. The request body must inclu
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.ca_certificate import CACertificate
 from kong_admin_client.models.create_ca_certificate_request import CreateCaCertificateRequest
@@ -95,8 +93,6 @@ Delete the specified Certificate Authority (CA) certificate using the provided c
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.rest import ApiException
 from pprint import pprint
@@ -162,8 +158,6 @@ Retrieve details about the specified Certificate Authority (CA) certificate usin
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.ca_certificate import CACertificate
 from kong_admin_client.rest import ApiException
@@ -233,8 +227,6 @@ Retrieve a list of all available Certificate Authority (CA) certificates, includ
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.ca_certificate import CACertificate
 from kong_admin_client.rest import ApiException
@@ -307,8 +299,6 @@ Update the specified Certificate Authority (CA) certificate using the provided c
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.ca_certificate import CACertificate
 from kong_admin_client.models.create_ca_certificate_request import CreateCaCertificateRequest
@@ -382,8 +372,6 @@ Create or Update a CA Certificate using the provided path parameter `ca_certific
 
 
 ```python
-import time
-import os
 import kong_admin_client
 from kong_admin_client.models.ca_certificate import CACertificate
 from kong_admin_client.models.create_ca_certificate_request import CreateCaCertificateRequest
