@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from kong_admin_client.models.list_plugins_for_consumer200_response_config import ListPluginsForConsumer200ResponseConfig
 from kong_admin_client.models.list_plugins_for_consumer200_response_ordering import ListPluginsForConsumer200ResponseOrdering
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,7 +33,7 @@ class CreatePluginForConsumerRequest(BaseModel):
     service: Optional[StrictStr] = Field(default=None, description="If set, the plugin will only activate when receiving requests via one of the routes belonging to the specified service. ")
     consumer: Optional[StrictStr] = Field(default=None, description="If set, the plugin will activate only for requests where the specified has been authenticated. (Note that some plugins can not be restricted to consumers this way.) ")
     instance_name: Optional[StrictStr] = Field(default=None, description="The Plugin instance name. ")
-    config: Optional[ListPluginsForConsumer200ResponseConfig] = None
+    config: Optional[Dict[str, Any]] = Field(default=None, description="The configuration properties for the Plugin")
     protocols: Optional[List[StrictStr]] = Field(default=None, description="A list of the request protocols that will trigger this plugin.")
     enabled: Optional[StrictBool] = Field(default=True, description="Whether the plugin is applied. Default: `true`. ")
     tags: Optional[List[StrictStr]] = Field(default=None, description="An optional set of strings associated with the Plugin for grouping and filtering. ")
@@ -91,9 +90,6 @@ class CreatePluginForConsumerRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of config
-        if self.config:
-            _dict['config'] = self.config.to_dict()
         # override the default output from pydantic by calling `to_dict()` of ordering
         if self.ordering:
             _dict['ordering'] = self.ordering.to_dict()
@@ -129,7 +125,7 @@ class CreatePluginForConsumerRequest(BaseModel):
             "service": obj.get("service"),
             "consumer": obj.get("consumer"),
             "instance_name": obj.get("instance_name"),
-            "config": ListPluginsForConsumer200ResponseConfig.from_dict(obj["config"]) if obj.get("config") is not None else None,
+            "config": obj.get("config"),
             "protocols": obj.get("protocols"),
             "enabled": obj.get("enabled") if obj.get("enabled") is not None else True,
             "tags": obj.get("tags"),

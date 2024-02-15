@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **service** | **str** | If set, the plugin will only activate when receiving requests via one of the routes belonging to the specified service.  | [optional] 
 **consumer** | **str** | If set, the plugin will activate only for requests where the specified has been authenticated. (Note that some plugins can not be restricted to consumers this way.)  | [optional] 
 **instance_name** | **str** | The Plugin instance name.  | [optional] 
-**config** | [**ListPluginsForConsumer200ResponseConfig**](ListPluginsForConsumer200ResponseConfig.md) |  | [optional] 
+**config** | **object** | The configuration properties for the Plugin | [optional] 
 **protocols** | **List[str]** | A list of the request protocols that will trigger this plugin. | [optional] 
 **enabled** | **bool** | Whether the plugin is applied. Default: &#x60;true&#x60;.  | [optional] [default to True]
 **tags** | **List[str]** | An optional set of strings associated with the Plugin for grouping and filtering.  | [optional] 

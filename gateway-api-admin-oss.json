@@ -1939,16 +1939,7 @@
                 "config": {
                   "type": "object",
                   "description": "The configuration properties for the Plugin",
-                  "properties": {
-                    "hour": {
-                      "type": "integer",
-                      "example": 500
-                    },
-                    "minute": {
-                      "type": "integer",
-                      "example": 500
-                    }
-                  }
+                  "properties": {}
                 },
                 "protocols": {
                   "type": "array",
