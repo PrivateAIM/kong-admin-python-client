@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  openapi_generator:
+    image: openapitools/openapi-generator-cli:latest-release
+    volumes:
+      - .:/local
+    user: "1000:1000"
+    command: generate -i /local/gateway-api-admin-oss.json -c /local/config.json -g python -o /local/
