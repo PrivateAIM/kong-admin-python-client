@@ -96,7 +96,7 @@ class SNIsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSniWithCertificate200Response",
+            '201': "GetSniWithCertificate200Response",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -164,7 +164,7 @@ class SNIsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSniWithCertificate200Response",
+            '201': "GetSniWithCertificate200Response",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -232,7 +232,7 @@ class SNIsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSniWithCertificate200Response",
+            '201': "GetSniWithCertificate200Response",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -373,7 +373,7 @@ class SNIsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SNI",
+            '201': "SNI",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -445,7 +445,7 @@ class SNIsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SNI",
+            '201': "SNI",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -517,7 +517,7 @@ class SNIsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SNI",
+            '201': "SNI",
             '400': "object",
         }
         response_data = self.api_client.call_api(

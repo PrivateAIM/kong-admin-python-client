@@ -100,7 +100,7 @@ class TargetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Target",
+            '201': "Target",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -172,7 +172,7 @@ class TargetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Target",
+            '201': "Target",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -244,7 +244,7 @@ class TargetsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Target",
+            '201': "Target",
             '400': "object",
         }
         response_data = self.api_client.call_api(

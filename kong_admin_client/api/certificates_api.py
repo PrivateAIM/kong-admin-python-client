@@ -96,7 +96,7 @@ class CertificatesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Certificate",
+            '201': "Certificate",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -164,7 +164,7 @@ class CertificatesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Certificate",
+            '201': "Certificate",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -232,7 +232,7 @@ class CertificatesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Certificate",
+            '201': "Certificate",
             '400': "object",
         }
         response_data = self.api_client.call_api(

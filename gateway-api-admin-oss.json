@@ -4714,7 +4714,7 @@
         "description": "Create a new certificate with the provided details. Use this endpoint to add a new certificate to the system. The request body must include the certificate data and other details required for creating a new certificate.\n\n> Note: This API is not available in DB-less mode.",
         "operationId": "create-certificate",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -4899,7 +4899,7 @@
       "post": {
         "description": "Create a new SNI and associate it with a certificate in the system. Use this endpoint to add a new SNI to the system and link it to a specific certificate.",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -5110,7 +5110,7 @@
         "description": "Create a new Consumer",
         "operationId": "create-consumer",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -5276,7 +5276,7 @@
       "post": {
         "description": "Create a new Plugin associated with a Consumer",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -5432,7 +5432,7 @@
         "description": "This endpoint allows creating a new Key-set by sending a JSON object that describes the Key-set to be created.The request body must contain all the fields required to create a new Key-set.",
         "operationId": "create-key-set",
         "responses": {
-          "200": {
+          "201": {
             "$ref": "#/components/responses/key-set-response"
           },
           "400": {
@@ -5585,7 +5585,7 @@
         "description": "This API endpoint allows you to create a new key. When the request is successful, the API will respond with a 200 status code and a JSON object that represents the newly created key. If the request is invalid, the API will respond with a `400` status code and an error message in the response body.\n\n> Note: This API is not available in DB-less mode.\n",
         "operationId": "create-key",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -5813,7 +5813,7 @@
         "description": "Create a new Plugin\n\n>Note: This API is not available in DB-less mode.",
         "operationId": "create-plugin",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -6079,7 +6079,7 @@
         "description": "Create a new route",
         "operationId": "create-route",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -6266,7 +6266,7 @@
       "post": {
         "description": "Create a new Plugin associated with a route",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -6516,7 +6516,7 @@
         "description": "Create a new service",
         "operationId": "create-service",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -6736,7 +6736,7 @@
       "post": {
         "description": "Create a new Plugin associated with a service",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -6976,7 +6976,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -7232,7 +7232,7 @@
         "description": "Create a new SNI",
         "operationId": "create-sni",
         "responses": {
-          "200": {
+          "201": {
             "$ref": "#/components/responses/sni-response"
           },
           "400": {
@@ -7481,7 +7481,7 @@
         "description": "Create a new Upstream\n",
         "operationId": "create-upstream",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -7906,7 +7906,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {
@@ -8127,7 +8127,7 @@
         "description": "Create a new Vault",
         "operationId": "create-vault",
         "responses": {
-          "200": {
+          "201": {
             "content": {
               "application/json": {
                 "schema": {

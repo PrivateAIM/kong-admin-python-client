@@ -97,7 +97,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -165,7 +165,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -233,7 +233,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -374,7 +374,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -446,7 +446,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -518,7 +518,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -662,7 +662,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -734,7 +734,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -806,7 +806,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -950,7 +950,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -1022,7 +1022,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
@@ -1094,7 +1094,7 @@ class PluginsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Plugin",
+            '201': "Plugin",
             '400': "object",
         }
         response_data = self.api_client.call_api(
