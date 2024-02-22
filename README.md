@@ -69,16 +69,17 @@ configuration = kong_admin_client.Configuration(
 # Enter a context with an instance of the API client
 with kong_admin_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = kong_admin_client.CACertificatesApi(api_client)
-    create_ca_certificate_request = kong_admin_client.CreateCaCertificateRequest() # CreateCaCertificateRequest | This request body represents a new Certificate Authority (CA) certificate and includes the properties required to create a new certificate. (optional)
+    api_instance = kong_admin_client.ACLsApi(api_client)
+    consumer_username_or_id = 'my-username' # str | The unique identifier or the username of the Consumer to retrieve.
+    create_acl_for_consumer_request = kong_admin_client.CreateAclForConsumerRequest() # CreateAclForConsumerRequest | ACL request body (optional)
 
     try:
-        # Create a new CA certificate
-        api_response = api_instance.create_ca_certificate(create_ca_certificate_request=create_ca_certificate_request)
-        print("The response of CACertificatesApi->create_ca_certificate:\n")
+        # Create a new ACL associated with a Consumer
+        api_response = api_instance.create_acl_for_consumer(consumer_username_or_id, create_acl_for_consumer_request=create_acl_for_consumer_request)
+        print("The response of ACLsApi->create_acl_for_consumer:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling CACertificatesApi->create_ca_certificate: %s\n" % e)
+        print("Exception when calling ACLsApi->create_acl_for_consumer: %s\n" % e)
 
 ```
 
@@ -88,6 +89,8 @@ All URIs are relative to *http://localhost:8001*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ACLsApi* | [**create_acl_for_consumer**](docs/ACLsApi.md#create_acl_for_consumer) | **POST** /consumers/{consumer_username_or_id}/acls | Create a new ACL associated with a Consumer
+*ACLsApi* | [**list_acls_for_consumer**](docs/ACLsApi.md#list_acls_for_consumer) | **GET** /consumers/{consumer_username_or_id}/acls | List all ACLs associated with a consumer
 *CACertificatesApi* | [**create_ca_certificate**](docs/CACertificatesApi.md#create_ca_certificate) | **POST** /ca_certificates | Create a new CA certificate
 *CACertificatesApi* | [**delete_ca_certificate**](docs/CACertificatesApi.md#delete_ca_certificate) | **DELETE** /ca_certificates/{ca_certificate_id} | Delete a CA Certificate
 *CACertificatesApi* | [**get_ca_certificate**](docs/CACertificatesApi.md#get_ca_certificate) | **GET** /ca_certificates/{ca_certificate_id} | Fetch a CA certificate
@@ -121,6 +124,8 @@ Class | Method | HTTP request | Description
 *InformationApi* | [**options_endpoint**](docs/InformationApi.md#options_endpoint) | **OPTIONS** /{endpoint} | List method by endpoint
 *InformationApi* | [**post_schemas_entity_validate**](docs/InformationApi.md#post_schemas_entity_validate) | **POST** /schemas/{entity}/validate | Validate a configuration against a schema
 *InformationApi* | [**post_schemas_plugins_validate**](docs/InformationApi.md#post_schemas_plugins_validate) | **POST** /schemas/plugins/validate | Validate plugin schema
+*KeyAuthsApi* | [**create_key_auth_for_consumer**](docs/KeyAuthsApi.md#create_key_auth_for_consumer) | **POST** /consumers/{consumer_username_or_id}/key-auth | Create a new Key-auth associated with a Consumer
+*KeyAuthsApi* | [**list_key_auths_for_consumer**](docs/KeyAuthsApi.md#list_key_auths_for_consumer) | **GET** /consumers/{consumer_username_or_id}/key-auth | List all Key-auths associated with a consumer
 *KeySetsApi* | [**create_key_set**](docs/KeySetsApi.md#create_key_set) | **POST** /key-sets | Create a new Key-set
 *KeySetsApi* | [**delete_key_set**](docs/KeySetsApi.md#delete_key_set) | **DELETE** /key-sets/{key-set_id_or_name} | Delete a Key-set
 *KeySetsApi* | [**get_key_set**](docs/KeySetsApi.md#get_key_set) | **GET** /key-sets/{key-set_id_or_name} | Fetch a Key-set
@@ -211,12 +216,16 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [ACL](docs/ACL.md)
+ - [ACLConsumer](docs/ACLConsumer.md)
  - [CACertificate](docs/CACertificate.md)
  - [Certificate](docs/Certificate.md)
  - [Consumer](docs/Consumer.md)
+ - [CreateAclForConsumerRequest](docs/CreateAclForConsumerRequest.md)
  - [CreateCaCertificateRequest](docs/CreateCaCertificateRequest.md)
  - [CreateCertificateRequest](docs/CreateCertificateRequest.md)
  - [CreateConsumerRequest](docs/CreateConsumerRequest.md)
+ - [CreateKeyAuthForConsumerRequest](docs/CreateKeyAuthForConsumerRequest.md)
  - [CreateKeyRequest](docs/CreateKeyRequest.md)
  - [CreateKeyRequestPem](docs/CreateKeyRequestPem.md)
  - [CreateKeyRequestSet](docs/CreateKeyRequestSet.md)
@@ -274,11 +283,15 @@ Class | Method | HTTP request | Description
  - [GetTimers200ResponseStatsTimersMeta](docs/GetTimers200ResponseStatsTimersMeta.md)
  - [GetTimers200ResponseWorker](docs/GetTimers200ResponseWorker.md)
  - [Key](docs/Key.md)
+ - [KeyAuth](docs/KeyAuth.md)
+ - [KeyAuthConsumer](docs/KeyAuthConsumer.md)
  - [KeyPem](docs/KeyPem.md)
  - [KeySet](docs/KeySet.md)
+ - [ListAclsForConsumer200Response](docs/ListAclsForConsumer200Response.md)
  - [ListCertificate200Response](docs/ListCertificate200Response.md)
  - [ListConsumer200Response](docs/ListConsumer200Response.md)
  - [ListKey200Response](docs/ListKey200Response.md)
+ - [ListKeyAuthsForConsumer200Response](docs/ListKeyAuthsForConsumer200Response.md)
  - [ListKeySet200Response](docs/ListKeySet200Response.md)
  - [ListPluginsForConsumer200Response](docs/ListPluginsForConsumer200Response.md)
  - [ListPluginsForConsumer200ResponseConfig](docs/ListPluginsForConsumer200ResponseConfig.md)

@@ -202,6 +202,41 @@
       }
     },
     "schemas": {
+      "ACL": {
+        "description": "ACL entities are used to control access to a resource. An ACL can be applied to a Consumer",
+        "properties": {
+          "consumer": {
+            "additionalProperties": false,
+            "description": "The Consumer to which this ACL is associated. A Consumer can have many ACLs.",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "created_at": {
+            "description": "Unix epoch when the resource was created.",
+            "type": "integer"
+          },
+          "id": {
+            "type": "string"
+          },
+          "group": {
+            "description": "The group that this ACL represents.",
+            "type": "string"
+          },
+          "tags": {
+            "description": "An optional set of strings associated with the ACL for grouping and filtering.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object",
+        "title": "ACL"
+      },      
       "CA-Certificate": {
         "description": "A CA certificate object represents a trusted CA. These objects are used by Kong to verify the validity of a client or server certificate. CA Certificates can be both tagged and filtered by tags.",
         "example": {
@@ -544,6 +579,41 @@
           }
         }
       },
+      "Key-auth": {
+        "description": "A Key-auth entity represents a key used to authenticate consumers with the key-auth plugin. The key-auth plugin is used to protect API endpoints by requiring a secret key to be sent with the request.",
+        "properties": {
+          "consumer": {
+            "additionalProperties": false,
+            "description": "The Consumer to which this Key is associated. A Consumer can have many Key-auth credentials.",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "created_at": {
+            "description": "Unix epoch when the resource was created.",
+            "type": "integer"
+          },
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "description": "The key that will be used to authenticate the consumer. If this field is not specified, it will be auto-generated.",
+            "type": "string"
+          },
+          "tags": {
+            "description": "An optional set of strings associated with the Key for grouping and filtering.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object",
+        "title": "Key-auth"
+      },       
       "Key-set": {
         "type": "object",
         "title": "Key-set",
@@ -1547,6 +1617,38 @@
       }
     },
     "requestBodies": {
+      "acl-request": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "consumer": {
+                  "type": "string",
+                  "description": "The id/username of the consumer that this ACL will be associated with.\n",
+                  "nullable": true
+                },
+                "group": {
+                  "type": "string",
+                  "description": "The name of the group to associate with the given consumer.\n",
+                  "nullable": false
+                },
+                "tags": {
+                  "type": "array",
+                  "description": "An optional set of strings associated with the ACL for grouping and filtering.\n",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required":[
+                "group"
+              ]
+            }
+          }
+        },
+        "description": "ACL request body"
+      }, 
       "CA-cert-request": {
         "content": {
           "application/json": {
@@ -2013,6 +2115,35 @@
         },
         "description": "Plugin request body"
       },
+      "key-auth-request": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "consumer": {
+                  "type": "string",
+                  "description": "The id/username of the consumer that this Key will be associated with.\n",
+                  "nullable": true
+                },
+                "key": {
+                  "type": "string",
+                  "description": "The key to associate with the given consumer. If not specified, it will be auto-generated.\n",
+                  "nullable": true
+                },
+                "tags": {
+                  "type": "array",
+                  "description": "An optional set of strings associated with the Key for grouping and filtering.\n",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "key-auth request body"
+      },           
       "key-set-request": {
         "content": {
           "application/json": {
@@ -5391,6 +5522,168 @@
         },
         {
           "$ref": "#/components/parameters/plugin_id"
+        }
+      ]
+    },
+    "/consumers/{consumer_username_or_id}/acls": {
+      "get": {
+        "description": "Retrieve a list of all ACLs associated with a consumer.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pagination-size"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-offset"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-tags-filter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/ACL"
+                      },
+                      "type": "array"
+                    },
+                    "offset": {
+                      "$ref": "#/components/schemas/pagination-offset-response"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "A successful response listing Consumers"
+          }
+        },
+        "summary": "List all ACLs associated with a consumer",
+        "tags": [
+          "ACLs"
+        ],
+        "operationId": "list-acls-for-consumer"
+      },
+      "post": {
+        "description": "Create a new ACL associated with a Consumer",
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ACL"
+                }
+              }
+            },
+            "description": "Successfully created ACL"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Invalid ACL"
+          }
+        },
+        "summary": "Create a new ACL associated with a Consumer",
+        "tags": [
+          "ACLs"
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/acl-request"
+        },
+        "operationId": "create-acl-for-consumer"
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/consumer_username_or_id"
+        }
+      ]
+    },
+    "/consumers/{consumer_username_or_id}/key-auth": {
+      "get": {
+        "description": "Retrieve a list of all Key-auths associated with a consumer.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pagination-size"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-offset"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-tags-filter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Key-auth"
+                      },
+                      "type": "array"
+                    },
+                    "offset": {
+                      "$ref": "#/components/schemas/pagination-offset-response"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "A successful response listing Key-auths"
+          }
+        },
+        "summary": "List all Key-auths associated with a consumer",
+        "tags": [
+          "Key-auths"
+        ],
+        "operationId": "list-key-auths-for-consumer"
+      },
+      "post": {
+        "description": "Create a new Key-auth associated with a Consumer",
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Key-auth"
+                }
+              }
+            },
+            "description": "Successfully created Key-auth"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Invalid Key-auth"
+          }
+        },
+        "summary": "Create a new Key-auth associated with a Consumer",
+        "tags": [
+          "Key-auths"
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/key-auth-request"
+        },
+        "operationId": "create-key-auth-for-consumer"
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/consumer_username_or_id"
         }
       ]
     },

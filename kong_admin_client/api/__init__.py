@@ -1,11 +1,13 @@
 # flake8: noqa
 
 # import apis into api package
+from kong_admin_client.api.acls_api import ACLsApi
 from kong_admin_client.api.ca_certificates_api import CACertificatesApi
 from kong_admin_client.api.certificates_api import CertificatesApi
 from kong_admin_client.api.consumers_api import ConsumersApi
 from kong_admin_client.api.debug_api import DebugApi
 from kong_admin_client.api.information_api import InformationApi
+from kong_admin_client.api.key_auths_api import KeyAuthsApi
 from kong_admin_client.api.key_sets_api import KeySetsApi
 from kong_admin_client.api.keys_api import KeysApi
 from kong_admin_client.api.plugins_api import PluginsApi

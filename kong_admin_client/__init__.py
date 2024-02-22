@@ -18,11 +18,13 @@
 __version__ = "3.5.0"
 
 # import apis into sdk package
+from kong_admin_client.api.acls_api import ACLsApi
 from kong_admin_client.api.ca_certificates_api import CACertificatesApi
 from kong_admin_client.api.certificates_api import CertificatesApi
 from kong_admin_client.api.consumers_api import ConsumersApi
 from kong_admin_client.api.debug_api import DebugApi
 from kong_admin_client.api.information_api import InformationApi
+from kong_admin_client.api.key_auths_api import KeyAuthsApi
 from kong_admin_client.api.key_sets_api import KeySetsApi
 from kong_admin_client.api.keys_api import KeysApi
 from kong_admin_client.api.plugins_api import PluginsApi
@@ -46,12 +48,16 @@ from kong_admin_client.exceptions import ApiAttributeError
 from kong_admin_client.exceptions import ApiException
 
 # import models into sdk package
+from kong_admin_client.models.acl import ACL
+from kong_admin_client.models.acl_consumer import ACLConsumer
 from kong_admin_client.models.ca_certificate import CACertificate
 from kong_admin_client.models.certificate import Certificate
 from kong_admin_client.models.consumer import Consumer
+from kong_admin_client.models.create_acl_for_consumer_request import CreateAclForConsumerRequest
 from kong_admin_client.models.create_ca_certificate_request import CreateCaCertificateRequest
 from kong_admin_client.models.create_certificate_request import CreateCertificateRequest
 from kong_admin_client.models.create_consumer_request import CreateConsumerRequest
+from kong_admin_client.models.create_key_auth_for_consumer_request import CreateKeyAuthForConsumerRequest
 from kong_admin_client.models.create_key_request import CreateKeyRequest
 from kong_admin_client.models.create_key_request_pem import CreateKeyRequestPem
 from kong_admin_client.models.create_key_request_set import CreateKeyRequestSet
@@ -109,11 +115,15 @@ from kong_admin_client.models.get_timers200_response_stats_timers import GetTime
 from kong_admin_client.models.get_timers200_response_stats_timers_meta import GetTimers200ResponseStatsTimersMeta
 from kong_admin_client.models.get_timers200_response_worker import GetTimers200ResponseWorker
 from kong_admin_client.models.key import Key
+from kong_admin_client.models.key_auth import KeyAuth
+from kong_admin_client.models.key_auth_consumer import KeyAuthConsumer
 from kong_admin_client.models.key_pem import KeyPem
 from kong_admin_client.models.key_set import KeySet
+from kong_admin_client.models.list_acls_for_consumer200_response import ListAclsForConsumer200Response
 from kong_admin_client.models.list_certificate200_response import ListCertificate200Response
 from kong_admin_client.models.list_consumer200_response import ListConsumer200Response
 from kong_admin_client.models.list_key200_response import ListKey200Response
+from kong_admin_client.models.list_key_auths_for_consumer200_response import ListKeyAuthsForConsumer200Response
 from kong_admin_client.models.list_key_set200_response import ListKeySet200Response
 from kong_admin_client.models.list_plugins_for_consumer200_response import ListPluginsForConsumer200Response
 from kong_admin_client.models.list_plugins_for_consumer200_response_config import ListPluginsForConsumer200ResponseConfig
