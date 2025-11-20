@@ -22,12 +22,12 @@ json = "{}"
 # create an instance of KeyAuth from a JSON string
 key_auth_instance = KeyAuth.from_json(json)
 # print the JSON string representation of the object
-print KeyAuth.to_json()
+print(KeyAuth.to_json())
 
 # convert the object into a dict
 key_auth_dict = key_auth_instance.to_dict()
 # create an instance of KeyAuth from a dict
-key_auth_form_dict = key_auth.from_dict(key_auth_dict)
+key_auth_from_dict = KeyAuth.from_dict(key_auth_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

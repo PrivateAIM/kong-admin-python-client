@@ -21,12 +21,12 @@ json = "{}"
 # create an instance of CreateVaultRequest from a JSON string
 create_vault_request_instance = CreateVaultRequest.from_json(json)
 # print the JSON string representation of the object
-print CreateVaultRequest.to_json()
+print(CreateVaultRequest.to_json())
 
 # convert the object into a dict
 create_vault_request_dict = create_vault_request_instance.to_dict()
 # create an instance of CreateVaultRequest from a dict
-create_vault_request_form_dict = create_vault_request.from_dict(create_vault_request_dict)
+create_vault_request_from_dict = CreateVaultRequest.from_dict(create_vault_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

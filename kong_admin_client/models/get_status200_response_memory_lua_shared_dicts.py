@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from kong_admin_client.models.get_status200_response_memory_lua_shared_dicts_kong_core_db_cache import GetStatus200ResponseMemoryLuaSharedDictsKongCoreDbCache
 from typing import Optional, Set
@@ -31,11 +31,11 @@ class GetStatus200ResponseMemoryLuaSharedDicts(BaseModel):
     kong_core_db_cache: Optional[GetStatus200ResponseMemoryLuaSharedDictsKongCoreDbCache] = None
     __properties: ClassVar[List[str]] = ["kong_core_db_cache"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

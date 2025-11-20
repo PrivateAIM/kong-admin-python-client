@@ -19,12 +19,12 @@ json = "{}"
 # create an instance of KeyPem from a JSON string
 key_pem_instance = KeyPem.from_json(json)
 # print the JSON string representation of the object
-print KeyPem.to_json()
+print(KeyPem.to_json())
 
 # convert the object into a dict
 key_pem_dict = key_pem_instance.to_dict()
 # create an instance of KeyPem from a dict
-key_pem_form_dict = key_pem.from_dict(key_pem_dict)
+key_pem_from_dict = KeyPem.from_dict(key_pem_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

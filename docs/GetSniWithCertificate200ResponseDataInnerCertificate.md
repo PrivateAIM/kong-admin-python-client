@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of GetSniWithCertificate200ResponseDataInnerCertificate from a JSON string
 get_sni_with_certificate200_response_data_inner_certificate_instance = GetSniWithCertificate200ResponseDataInnerCertificate.from_json(json)
 # print the JSON string representation of the object
-print GetSniWithCertificate200ResponseDataInnerCertificate.to_json()
+print(GetSniWithCertificate200ResponseDataInnerCertificate.to_json())
 
 # convert the object into a dict
 get_sni_with_certificate200_response_data_inner_certificate_dict = get_sni_with_certificate200_response_data_inner_certificate_instance.to_dict()
 # create an instance of GetSniWithCertificate200ResponseDataInnerCertificate from a dict
-get_sni_with_certificate200_response_data_inner_certificate_form_dict = get_sni_with_certificate200_response_data_inner_certificate.from_dict(get_sni_with_certificate200_response_data_inner_certificate_dict)
+get_sni_with_certificate200_response_data_inner_certificate_from_dict = GetSniWithCertificate200ResponseDataInnerCertificate.from_dict(get_sni_with_certificate200_response_data_inner_certificate_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

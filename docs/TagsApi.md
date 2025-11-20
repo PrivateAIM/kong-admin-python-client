@@ -13,7 +13,11 @@ Method | HTTP request | Description
 
 List all tags
 
-Returns a paginated list of all the tags in the system.  The list of entities will not be restricted to a single entity type: all the entities tagged with tags will be present on this list.  If an entity is tagged with more than one tag, the entity_id for that entity will appear more than once in the resulting list. Similarly, if several entities have been tagged with the same tag, the tag will appear in several items of this list.
+Returns a paginated list of all the tags in the system.
+
+The list of entities will not be restricted to a single entity type: all the entities tagged with tags will be present on this list.
+
+If an entity is tagged with more than one tag, the entity_id for that entity will appear more than once in the resulting list. Similarly, if several entities have been tagged with the same tag, the tag will appear in several items of this list.
 
 ### Example
 
@@ -77,7 +81,9 @@ No authorization required
 
 List entity by tag
 
-Returns the entities that have been tagged with the specified tag.  The list of entities will not be restricted to a single entity type: all the entities tagged with tags will be present on this list.
+Returns the entities that have been tagged with the specified tag.
+
+The list of entities will not be restricted to a single entity type: all the entities tagged with tags will be present on this list.
 
 ### Example
 

@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,15 +31,15 @@ class CACertificate(BaseModel):
     cert: Optional[StrictStr] = Field(default=None, description="PEM-encoded public certificate of the CA.")
     cert_digest: Optional[StrictStr] = Field(default=None, description="SHA256 hex digest of the public certificate.")
     created_at: Optional[StrictInt] = Field(default=None, description="Unix epoch when the resource was created.")
-    id: Optional[StrictStr] = None
+    id: Optional[UUID] = None
     tags: Optional[List[StrictStr]] = Field(default=None, description="An optional set of strings associated with the Certificate for grouping and filtering.")
     __properties: ClassVar[List[str]] = ["cert", "cert_digest", "created_at", "id", "tags"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

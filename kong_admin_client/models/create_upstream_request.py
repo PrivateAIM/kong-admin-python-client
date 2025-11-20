@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from kong_admin_client.models.create_upstream_request_client_certificate import CreateUpstreamRequestClientCertificate
@@ -80,11 +80,11 @@ class CreateUpstreamRequest(BaseModel):
             raise ValueError("must be one of enum values ('none', 'consumer', 'ip', 'cookie', 'uri_capture', 'path', 'query_arg')")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

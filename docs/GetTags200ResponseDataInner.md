@@ -19,12 +19,12 @@ json = "{}"
 # create an instance of GetTags200ResponseDataInner from a JSON string
 get_tags200_response_data_inner_instance = GetTags200ResponseDataInner.from_json(json)
 # print the JSON string representation of the object
-print GetTags200ResponseDataInner.to_json()
+print(GetTags200ResponseDataInner.to_json())
 
 # convert the object into a dict
 get_tags200_response_data_inner_dict = get_tags200_response_data_inner_instance.to_dict()
 # create an instance of GetTags200ResponseDataInner from a dict
-get_tags200_response_data_inner_form_dict = get_tags200_response_data_inner.from_dict(get_tags200_response_data_inner_dict)
+get_tags200_response_data_inner_from_dict = GetTags200ResponseDataInner.from_dict(get_tags200_response_data_inner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

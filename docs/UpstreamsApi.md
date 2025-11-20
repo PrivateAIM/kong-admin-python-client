@@ -17,7 +17,8 @@ Method | HTTP request | Description
 
 Create a new Upstream
 
-Create a new Upstream 
+Create a new Upstream
+
 
 ### Example
 
@@ -221,7 +222,8 @@ No authorization required
 
 List all Upstreams
 
-List all registered upstreams. You can filter the results by pagination size, offset, or tags like `/upstreams?size=10&offset=0`. 
+List all registered upstreams. You can filter the results by pagination size, offset, or tags like `/upstreams?size=10&offset=0`.
+
 
 ### Example
 

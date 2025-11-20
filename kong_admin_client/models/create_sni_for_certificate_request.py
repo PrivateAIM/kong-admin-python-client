@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from kong_admin_client.models.create_sni_for_certificate_request_certificate import CreateSniForCertificateRequestCertificate
 from typing import Optional, Set
@@ -33,11 +33,11 @@ class CreateSniForCertificateRequest(BaseModel):
     certificate: CreateSniForCertificateRequestCertificate
     __properties: ClassVar[List[str]] = ["name", "tags", "certificate"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

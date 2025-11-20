@@ -18,18 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CreateRouteRequestHeaders(BaseModel):
+class InlineObject(BaseModel):
     """
-    One or more lists of values indexed by header name that will cause this route to match if present in the request. The Host header cannot be used with this hosts should be specified using the `hosts` attribute. When headers contains only one value and that value starts with the special prefix` ~*`, the value is interpreted as a regular expression.
+    InlineObject
     """ # noqa: E501
-    x_my_header: Optional[List[StrictStr]] = Field(default=None, alias="x-my-header")
-    x_another_header: Optional[List[StrictStr]] = Field(default=None, alias="x-another-header")
-    __properties: ClassVar[List[str]] = ["x-my-header", "x-another-header"]
+    id: Optional[StrictStr] = Field(default=None, description="The unique id of the consumer.")
+    created_at: Optional[StrictInt] = Field(default=None, description="Unix epoch when the resource was created. ")
+    username: Optional[StrictStr] = Field(default=None, description="The unique username of the consumer.")
+    custom_id: Optional[StrictStr] = Field(default=None, description="Field for the unique consumer ID")
+    tags: Optional[List[StrictStr]] = Field(default=None, description="An optional set of strings associated with the Consumer for grouping and filtering.")
+    __properties: ClassVar[List[str]] = ["id", "created_at", "username", "custom_id", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +52,7 @@ class CreateRouteRequestHeaders(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CreateRouteRequestHeaders from a JSON string"""
+        """Create an instance of InlineObject from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +77,7 @@ class CreateRouteRequestHeaders(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CreateRouteRequestHeaders from a dict"""
+        """Create an instance of InlineObject from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +85,11 @@ class CreateRouteRequestHeaders(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "x-my-header": obj.get("x-my-header"),
-            "x-another-header": obj.get("x-another-header")
+            "id": obj.get("id"),
+            "created_at": obj.get("created_at"),
+            "username": obj.get("username"),
+            "custom_id": obj.get("custom_id"),
+            "tags": obj.get("tags")
         })
         return _obj
 

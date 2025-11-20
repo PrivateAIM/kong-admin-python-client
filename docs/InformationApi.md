@@ -154,7 +154,8 @@ No authorization required
 
 Retrieve Proxy-Wasm Filter JSON Schema
 
-Retrieve the JSON Schema of a Proxy-Wasm filter's configuration. This is useful to understand what fields a filter accepts, and can be used for building third-party integrations to the Kong's filter chain system. 
+Retrieve the JSON Schema of a Proxy-Wasm filter's configuration. This is useful to understand what fields a filter accepts, and can be used for building third-party integrations to the Kong's filter chain system.
+
 
 ### Example
 
@@ -221,7 +222,8 @@ No authorization required
 
 Retrieve Plugin Schema
 
-Retrieve the schema of a plugin's configuration. This is useful to understand what fields a plugin accepts, and can be used for building third-party integrations to the Kong's plugin system. 
+Retrieve the schema of a plugin's configuration. This is useful to understand what fields a plugin accepts, and can be used for building third-party integrations to the Kong's plugin system.
+
 
 ### Example
 
@@ -355,7 +357,9 @@ No authorization required
 
 Health Routes
 
-Retrieve usage information about a node, with some basic information about the connections being processed by the underlying nginx process, the status of the database connection, and node's memory usage.  If you want to monitor the Kong process, since Kong is built on top of nginx, every existing nginx monitoring tool or agent can be used.
+Retrieve usage information about a node, with some basic information about the connections being processed by the underlying nginx process, the status of the database connection, and node's memory usage.
+
+If you want to monitor the Kong process, since Kong is built on top of nginx, every existing nginx monitoring tool or agent can be used.
 
 ### Example
 
@@ -483,7 +487,8 @@ No authorization required
 
 Check endpoint or entity existence
 
-Similar to `HTTP` GET, but does not return the body. Returns HTTP 200 when the endpoint exits or HTTP 404 when it does not. Other status codes are possible. 
+Similar to `HTTP` GET, but does not return the body. Returns HTTP 200 when the endpoint exits or HTTP 404 when it does not. Other status codes are possible.
+
 
 ### Example
 
@@ -549,7 +554,8 @@ No authorization required
 
 List method by endpoint
 
-List all the supported HTTP methods by an endpoint. This can also be used with a CORS preflight request. 
+List all the supported HTTP methods by an endpoint. This can also be used with a CORS preflight request.
+
 
 ### Example
 
@@ -615,7 +621,9 @@ No authorization required
 
 Validate a configuration against a schema
 
-Check validity of a configuration against its entity schema. This allows you to test your input before submitting a request to the entity endpoints of the Admin API.  A requests to the entity endpoint using the given configuration may still fail due to other reasons, such as invalid foreign key relationships or uniqueness check failures against the contents of the data store.
+Check validity of a configuration against its entity schema. This allows you to test your input before submitting a request to the entity endpoints of the Admin API.
+
+A requests to the entity endpoint using the given configuration may still fail due to other reasons, such as invalid foreign key relationships or uniqueness check failures against the contents of the data store.
 
 ### Example
 
@@ -683,7 +691,10 @@ No authorization required
 
 Validate plugin schema
 
-Check validity of a plugin configuration against the plugins entity schema. This allows you to test your input before submitting a request to the entity endpoints of the Admin API.   This only performs the schema validation checks, checking that the input configuration is well-formed. A requests to the entity endpoint using the given configuration may still fail due to other reasons, such as invalid foreign key relationships or uniqueness check failures against the contents of the data store.
+Check validity of a plugin configuration against the plugins entity schema. This allows you to test your input before submitting a request to the entity endpoints of the Admin API.
+
+
+This only performs the schema validation checks, checking that the input configuration is well-formed. A requests to the entity endpoint using the given configuration may still fail due to other reasons, such as invalid foreign key relationships or uniqueness check failures against the contents of the data store.
 
 ### Example
 

@@ -366,7 +366,15 @@ No authorization required
 
 Update a Consumer
 
-Create or Update Consumer using ID or username. The consumer will be identified via the username or id attribute.If the consumer with the specified ID or username cannot be found, the endpoint will return a 404.  When the username or id attribute has the structure of a UUID, the Consumer being inserted/replaced will be identified by its id. Otherwise it will be identified by its username.  When creating a new Consumer without specifying id (neither in the URL nor in the body), then it will be auto-generated.  Notice that specifying a username in the URL and a different one in the request body is not allowed.  > Note: This API is not available in DB-less mode.
+Create or Update Consumer using ID or username. The consumer will be identified via the username or id attribute.If the consumer with the specified ID or username cannot be found, the endpoint will return a 404.
+
+When the username or id attribute has the structure of a UUID, the Consumer being inserted/replaced will be identified by its id. Otherwise it will be identified by its username.
+
+When creating a new Consumer without specifying id (neither in the URL nor in the body), then it will be auto-generated.
+
+Notice that specifying a username in the URL and a different one in the request body is not allowed.
+
+> Note: This API is not available in DB-less mode.
 
 ### Example
 

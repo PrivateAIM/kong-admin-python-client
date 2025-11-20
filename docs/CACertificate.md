@@ -22,12 +22,12 @@ json = "{}"
 # create an instance of CACertificate from a JSON string
 ca_certificate_instance = CACertificate.from_json(json)
 # print the JSON string representation of the object
-print CACertificate.to_json()
+print(CACertificate.to_json())
 
 # convert the object into a dict
 ca_certificate_dict = ca_certificate_instance.to_dict()
 # create an instance of CACertificate from a dict
-ca_certificate_form_dict = ca_certificate.from_dict(ca_certificate_dict)
+ca_certificate_from_dict = CACertificate.from_dict(ca_certificate_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from kong_admin_client.models.filter_chain_filters_inner_config import FilterChainFiltersInnerConfig
 from typing import Optional, Set
@@ -33,11 +33,11 @@ class FilterChainFiltersInner(BaseModel):
     enabled: Optional[StrictBool] = Field(default=None, description="Whether the filter is to be applied.")
     __properties: ClassVar[List[str]] = ["name", "config", "enabled"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

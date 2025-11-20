@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of UpstreamClientCertificate from a JSON string
 upstream_client_certificate_instance = UpstreamClientCertificate.from_json(json)
 # print the JSON string representation of the object
-print UpstreamClientCertificate.to_json()
+print(UpstreamClientCertificate.to_json())
 
 # convert the object into a dict
 upstream_client_certificate_dict = upstream_client_certificate_instance.to_dict()
 # create an instance of UpstreamClientCertificate from a dict
-upstream_client_certificate_form_dict = upstream_client_certificate.from_dict(upstream_client_certificate_dict)
+upstream_client_certificate_from_dict = UpstreamClientCertificate.from_dict(upstream_client_certificate_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

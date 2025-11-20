@@ -16,10 +16,10 @@
 from __future__ import annotations
 import json
 import pprint
-from pydantic import BaseModel, Field, StrictStr, ValidationError, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, Dict, List, Optional
 from pydantic import StrictStr, Field
-from typing import Union, List, Optional, Dict
+from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
 FILTERCHAINFILTERSINNERCONFIG_ONE_OF_SCHEMAS = ["object", "str"]
@@ -33,12 +33,12 @@ class FilterChainFiltersInnerConfig(BaseModel):
     # data type: object
     oneof_schema_2_validator: Optional[Dict[str, Any]] = None
     actual_instance: Optional[Union[object, str]] = None
-    one_of_schemas: List[str] = Field(default=Literal["object", "str"])
+    one_of_schemas: Set[str] = { "object", "str" }
 
-    model_config = {
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def __init__(self, *args, **kwargs) -> None:

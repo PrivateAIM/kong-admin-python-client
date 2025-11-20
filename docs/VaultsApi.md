@@ -152,7 +152,9 @@ No authorization required
 
 Fetch a Vault
 
-Get a Vault using ID or prefix.  Vault entities are used to configure different Vault connectors.
+Get a Vault using ID or prefix.
+
+Vault entities are used to configure different Vault connectors.
 
 ### Example
 

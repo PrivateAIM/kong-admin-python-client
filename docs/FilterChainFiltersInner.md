@@ -19,12 +19,12 @@ json = "{}"
 # create an instance of FilterChainFiltersInner from a JSON string
 filter_chain_filters_inner_instance = FilterChainFiltersInner.from_json(json)
 # print the JSON string representation of the object
-print FilterChainFiltersInner.to_json()
+print(FilterChainFiltersInner.to_json())
 
 # convert the object into a dict
 filter_chain_filters_inner_dict = filter_chain_filters_inner_instance.to_dict()
 # create an instance of FilterChainFiltersInner from a dict
-filter_chain_filters_inner_form_dict = filter_chain_filters_inner.from_dict(filter_chain_filters_inner_dict)
+filter_chain_filters_inner_from_dict = FilterChainFiltersInner.from_dict(filter_chain_filters_inner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

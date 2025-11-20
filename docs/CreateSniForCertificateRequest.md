@@ -19,12 +19,12 @@ json = "{}"
 # create an instance of CreateSniForCertificateRequest from a JSON string
 create_sni_for_certificate_request_instance = CreateSniForCertificateRequest.from_json(json)
 # print the JSON string representation of the object
-print CreateSniForCertificateRequest.to_json()
+print(CreateSniForCertificateRequest.to_json())
 
 # convert the object into a dict
 create_sni_for_certificate_request_dict = create_sni_for_certificate_request_instance.to_dict()
 # create an instance of CreateSniForCertificateRequest from a dict
-create_sni_for_certificate_request_form_dict = create_sni_for_certificate_request.from_dict(create_sni_for_certificate_request_dict)
+create_sni_for_certificate_request_from_dict = CreateSniForCertificateRequest.from_dict(create_sni_for_certificate_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

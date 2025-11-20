@@ -75,6 +75,7 @@ docs/GetTimers200ResponseStatsTimers.md
 docs/GetTimers200ResponseStatsTimersMeta.md
 docs/GetTimers200ResponseWorker.md
 docs/InformationApi.md
+docs/InlineObject.md
 docs/Key.md
 docs/KeyAuth.md
 docs/KeyAuthConsumer.md
@@ -228,6 +229,7 @@ kong_admin_client/models/get_timers200_response_stats_sys.py
 kong_admin_client/models/get_timers200_response_stats_timers.py
 kong_admin_client/models/get_timers200_response_stats_timers_meta.py
 kong_admin_client/models/get_timers200_response_worker.py
+kong_admin_client/models/inline_object.py
 kong_admin_client/models/key.py
 kong_admin_client/models/key_auth.py
 kong_admin_client/models/key_auth_consumer.py
@@ -287,6 +289,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_inline_object.py
 test/test_acl.py
 test/test_acl_consumer.py
 test/test_acls_api.py

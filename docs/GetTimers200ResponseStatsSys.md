@@ -22,12 +22,12 @@ json = "{}"
 # create an instance of GetTimers200ResponseStatsSys from a JSON string
 get_timers200_response_stats_sys_instance = GetTimers200ResponseStatsSys.from_json(json)
 # print the JSON string representation of the object
-print GetTimers200ResponseStatsSys.to_json()
+print(GetTimers200ResponseStatsSys.to_json())
 
 # convert the object into a dict
 get_timers200_response_stats_sys_dict = get_timers200_response_stats_sys_instance.to_dict()
 # create an instance of GetTimers200ResponseStatsSys from a dict
-get_timers200_response_stats_sys_form_dict = get_timers200_response_stats_sys.from_dict(get_timers200_response_stats_sys_dict)
+get_timers200_response_stats_sys_from_dict = GetTimers200ResponseStatsSys.from_dict(get_timers200_response_stats_sys_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

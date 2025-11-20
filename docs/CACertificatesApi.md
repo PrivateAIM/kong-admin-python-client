@@ -293,7 +293,9 @@ No authorization required
 
 Update a CA Certificate
 
-Update the specified Certificate Authority (CA) certificate using the provided ca_certificate_id. Use this endpoint to modify an existing CA certificate in the system. The request body should include the fields of the CA certificate that need to be updated.  > This API is not available in DB-less mode.
+Update the specified Certificate Authority (CA) certificate using the provided ca_certificate_id. Use this endpoint to modify an existing CA certificate in the system. The request body should include the fields of the CA certificate that need to be updated.
+
+> This API is not available in DB-less mode.
 
 ### Example
 

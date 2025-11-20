@@ -20,12 +20,12 @@ json = "{}"
 # create an instance of GetSchemasEntity200ResponseFieldsInnerId from a JSON string
 get_schemas_entity200_response_fields_inner_id_instance = GetSchemasEntity200ResponseFieldsInnerId.from_json(json)
 # print the JSON string representation of the object
-print GetSchemasEntity200ResponseFieldsInnerId.to_json()
+print(GetSchemasEntity200ResponseFieldsInnerId.to_json())
 
 # convert the object into a dict
 get_schemas_entity200_response_fields_inner_id_dict = get_schemas_entity200_response_fields_inner_id_instance.to_dict()
 # create an instance of GetSchemasEntity200ResponseFieldsInnerId from a dict
-get_schemas_entity200_response_fields_inner_id_form_dict = get_schemas_entity200_response_fields_inner_id.from_dict(get_schemas_entity200_response_fields_inner_id_dict)
+get_schemas_entity200_response_fields_inner_id_from_dict = GetSchemasEntity200ResponseFieldsInnerId.from_dict(get_schemas_entity200_response_fields_inner_id_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

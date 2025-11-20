@@ -35,7 +35,9 @@ Method | HTTP request | Description
 
 Create a new Plugin
 
-Create a new Plugin  >Note: This API is not available in DB-less mode.
+Create a new Plugin
+
+>Note: This API is not available in DB-less mode.
 
 ### Example
 

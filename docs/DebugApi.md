@@ -15,7 +15,9 @@ Method | HTTP request | Description
 
 Retrieve Node Log Level of A Node
 
-Retrieve the current log level of a node.  See the [NGINX documentation](http://nginx.org/en/docs/ngx_core_module.html#error_log) for the list of possible return values.
+Retrieve the current log level of a node.
+
+See the [NGINX documentation](http://nginx.org/en/docs/ngx_core_module.html#error_log) for the list of possible return values.
 
 ### Example
 
@@ -79,7 +81,14 @@ No authorization required
 
 Set Node Log Level of All Control Plane Nodes
 
-Change the log level of all Control Plane nodes deployed in Hybrid (CP/DP) cluster.  See the [NGINX docs](http://nginx.org/en/docs/ngx_core_module.html#error_log) for a list of accepted values.  Care must be taken when changing the log level of a node to `debug` in a production environment because the disk could fill up quickly. As soon as the debug logging finishes, revert back to a higher level such as notice.  It's currently not possible to change the log level of DP and DB-less nodes. 
+Change the log level of all Control Plane nodes deployed in Hybrid (CP/DP) cluster.
+
+See the [NGINX docs](http://nginx.org/en/docs/ngx_core_module.html#error_log) for a list of accepted values.
+
+Care must be taken when changing the log level of a node to `debug` in a production environment because the disk could fill up quickly. As soon as the debug logging finishes, revert back to a higher level such as notice.
+
+It's currently not possible to change the log level of DP and DB-less nodes.
+
 
 ### Example
 
@@ -147,7 +156,16 @@ No authorization required
 
 Set Node Log Level of All Nodes
 
-Change the log level of all nodes in a cluster.    See the [NGINX docs](http://nginx.org/en/docs/ngx_core_module.html#error_log) for a list of accepted values.  It's currently not possible to change the log level of DP and DB-less nodes.  Currently, when a user dynamically changes the log level for the entire cluster, if a new node joins a cluster the new node will run at the previous log level, not at the log level that was previously set dynamically for the entire cluster. 
+Change the log level of all nodes in a cluster.
+
+
+
+See the [NGINX docs](http://nginx.org/en/docs/ngx_core_module.html#error_log) for a list of accepted values.
+
+It's currently not possible to change the log level of DP and DB-less nodes.
+
+Currently, when a user dynamically changes the log level for the entire cluster, if a new node joins a cluster the new node will run at the previous log level, not at the log level that was previously set dynamically for the entire cluster.
+
 
 ### Example
 
@@ -215,7 +233,10 @@ No authorization required
 
 Set log level of a single node
 
-Change the log level of a node.  See the [NGINX documentation](http://nginx.org/en/docs/ngx_core_module.html#error_log) for the list of possible return values. 
+Change the log level of a node.
+
+See the [NGINX documentation](http://nginx.org/en/docs/ngx_core_module.html#error_log) for the list of possible return values.
+
 
 ### Example
 

@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of FilterChainService from a JSON string
 filter_chain_service_instance = FilterChainService.from_json(json)
 # print the JSON string representation of the object
-print FilterChainService.to_json()
+print(FilterChainService.to_json())
 
 # convert the object into a dict
 filter_chain_service_dict = filter_chain_service_instance.to_dict()
 # create an instance of FilterChainService from a dict
-filter_chain_service_form_dict = filter_chain_service.from_dict(filter_chain_service_dict)
+filter_chain_service_from_dict = FilterChainService.from_dict(filter_chain_service_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -17,7 +17,10 @@ Method | HTTP request | Description
 
 Create a new Key
 
-This API endpoint allows you to create a new key. When the request is successful, the API will respond with a 200 status code and a JSON object that represents the newly created key. If the request is invalid, the API will respond with a `400` status code and an error message in the response body.  > Note: This API is not available in DB-less mode. 
+This API endpoint allows you to create a new key. When the request is successful, the API will respond with a 200 status code and a JSON object that represents the newly created key. If the request is invalid, the API will respond with a `400` status code and an error message in the response body.
+
+> Note: This API is not available in DB-less mode.
+
 
 ### Example
 

@@ -165,7 +165,10 @@ No authorization required
 
 Delete a route
 
-Delete a route   > Note: This API is not available in DB-less mode.
+Delete a route
+
+
+> Note: This API is not available in DB-less mode.
 
 ### Example
 
@@ -437,7 +440,11 @@ No authorization required
 
 List all routes
 
-List all routes  route entities define rules to match client requests. Each route is associated with a service, and a service may have multiple routes associated to it. Every request matching a given route will be proxied to its associated service.  > Note: Path handling algorithms v1 was deprecated in Kong 3.0. From Kong 3.0, when router_flavor is set to expressions, route.path_handling will be unconfigurable and the path handling behavior will be \"v0\"; when router_flavor is set to traditional_compatible, the path handling behavior will be \"v0\" regardless of the value of route.path_handling. Only router_flavor = traditional will support path_handling \"v1\" behavior.
+List all routes
+
+route entities define rules to match client requests. Each route is associated with a service, and a service may have multiple routes associated to it. Every request matching a given route will be proxied to its associated service.
+
+> Note: Path handling algorithms v1 was deprecated in Kong 3.0. From Kong 3.0, when router_flavor is set to expressions, route.path_handling will be unconfigurable and the path handling behavior will be "v0"; when router_flavor is set to traditional_compatible, the path handling behavior will be "v0" regardless of the value of route.path_handling. Only router_flavor = traditional will support path_handling "v1" behavior.
 
 ### Example
 
@@ -583,7 +590,9 @@ No authorization required
 
 Update a route
 
-Update a route  > Note: This API is not available in DB-less mode.
+Update a route
+
+> Note: This API is not available in DB-less mode.
 
 ### Example
 
@@ -731,7 +740,10 @@ No authorization required
 
 Update a route
 
-Create or Update route using ID or name.   > Note: This API is not available in DB-less mode.
+Create or Update route using ID or name.
+
+
+> Note: This API is not available in DB-less mode.
 
 ### Example
 

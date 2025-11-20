@@ -20,12 +20,12 @@ json = "{}"
 # create an instance of UpstreamHealthchecksPassiveUnhealthy from a JSON string
 upstream_healthchecks_passive_unhealthy_instance = UpstreamHealthchecksPassiveUnhealthy.from_json(json)
 # print the JSON string representation of the object
-print UpstreamHealthchecksPassiveUnhealthy.to_json()
+print(UpstreamHealthchecksPassiveUnhealthy.to_json())
 
 # convert the object into a dict
 upstream_healthchecks_passive_unhealthy_dict = upstream_healthchecks_passive_unhealthy_instance.to_dict()
 # create an instance of UpstreamHealthchecksPassiveUnhealthy from a dict
-upstream_healthchecks_passive_unhealthy_form_dict = upstream_healthchecks_passive_unhealthy.from_dict(upstream_healthchecks_passive_unhealthy_dict)
+upstream_healthchecks_passive_unhealthy_from_dict = UpstreamHealthchecksPassiveUnhealthy.from_dict(upstream_healthchecks_passive_unhealthy_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

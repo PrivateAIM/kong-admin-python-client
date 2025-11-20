@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of GetStatus200ResponseDatabase from a JSON string
 get_status200_response_database_instance = GetStatus200ResponseDatabase.from_json(json)
 # print the JSON string representation of the object
-print GetStatus200ResponseDatabase.to_json()
+print(GetStatus200ResponseDatabase.to_json())
 
 # convert the object into a dict
 get_status200_response_database_dict = get_status200_response_database_instance.to_dict()
 # create an instance of GetStatus200ResponseDatabase from a dict
-get_status200_response_database_form_dict = get_status200_response_database.from_dict(get_status200_response_database_dict)
+get_status200_response_database_from_dict = GetStatus200ResponseDatabase.from_dict(get_status200_response_database_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

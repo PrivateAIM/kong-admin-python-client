@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of GetStatus200ResponseMemoryWorkersLuaVmsInner from a JSON string
 get_status200_response_memory_workers_lua_vms_inner_instance = GetStatus200ResponseMemoryWorkersLuaVmsInner.from_json(json)
 # print the JSON string representation of the object
-print GetStatus200ResponseMemoryWorkersLuaVmsInner.to_json()
+print(GetStatus200ResponseMemoryWorkersLuaVmsInner.to_json())
 
 # convert the object into a dict
 get_status200_response_memory_workers_lua_vms_inner_dict = get_status200_response_memory_workers_lua_vms_inner_instance.to_dict()
 # create an instance of GetStatus200ResponseMemoryWorkersLuaVmsInner from a dict
-get_status200_response_memory_workers_lua_vms_inner_form_dict = get_status200_response_memory_workers_lua_vms_inner.from_dict(get_status200_response_memory_workers_lua_vms_inner_dict)
+get_status200_response_memory_workers_lua_vms_inner_from_dict = GetStatus200ResponseMemoryWorkersLuaVmsInner.from_dict(get_status200_response_memory_workers_lua_vms_inner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

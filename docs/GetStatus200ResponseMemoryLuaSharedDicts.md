@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of GetStatus200ResponseMemoryLuaSharedDicts from a JSON string
 get_status200_response_memory_lua_shared_dicts_instance = GetStatus200ResponseMemoryLuaSharedDicts.from_json(json)
 # print the JSON string representation of the object
-print GetStatus200ResponseMemoryLuaSharedDicts.to_json()
+print(GetStatus200ResponseMemoryLuaSharedDicts.to_json())
 
 # convert the object into a dict
 get_status200_response_memory_lua_shared_dicts_dict = get_status200_response_memory_lua_shared_dicts_instance.to_dict()
 # create an instance of GetStatus200ResponseMemoryLuaSharedDicts from a dict
-get_status200_response_memory_lua_shared_dicts_form_dict = get_status200_response_memory_lua_shared_dicts.from_dict(get_status200_response_memory_lua_shared_dicts_dict)
+get_status200_response_memory_lua_shared_dicts_from_dict = GetStatus200ResponseMemoryLuaSharedDicts.from_dict(get_status200_response_memory_lua_shared_dicts_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

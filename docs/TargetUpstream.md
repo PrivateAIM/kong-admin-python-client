@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of TargetUpstream from a JSON string
 target_upstream_instance = TargetUpstream.from_json(json)
 # print the JSON string representation of the object
-print TargetUpstream.to_json()
+print(TargetUpstream.to_json())
 
 # convert the object into a dict
 target_upstream_dict = target_upstream_instance.to_dict()
 # create an instance of TargetUpstream from a dict
-target_upstream_form_dict = target_upstream.from_dict(target_upstream_dict)
+target_upstream_from_dict = TargetUpstream.from_dict(target_upstream_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

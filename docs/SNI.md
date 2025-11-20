@@ -22,12 +22,12 @@ json = "{}"
 # create an instance of SNI from a JSON string
 sni_instance = SNI.from_json(json)
 # print the JSON string representation of the object
-print SNI.to_json()
+print(SNI.to_json())
 
 # convert the object into a dict
 sni_dict = sni_instance.to_dict()
 # create an instance of SNI from a dict
-sni_form_dict = sni.from_dict(sni_dict)
+sni_from_dict = SNI.from_dict(sni_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

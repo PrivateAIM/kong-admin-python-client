@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from kong_admin_client.models.create_upstream_request_healthchecks_active import CreateUpstreamRequestHealthchecksActive
@@ -35,11 +35,11 @@ class CreateUpstreamRequestHealthchecks(BaseModel):
     threshold: Optional[Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(default=0, description="The minimum percentage of the upstream's targets' weight that must be available for the whole upstream to be considered healthy.")
     __properties: ClassVar[List[str]] = ["passive", "active", "threshold"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

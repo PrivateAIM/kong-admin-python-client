@@ -34,12 +34,12 @@ json = "{}"
 # create an instance of CreateRouteRequest from a JSON string
 create_route_request_instance = CreateRouteRequest.from_json(json)
 # print the JSON string representation of the object
-print CreateRouteRequest.to_json()
+print(CreateRouteRequest.to_json())
 
 # convert the object into a dict
 create_route_request_dict = create_route_request_instance.to_dict()
 # create an instance of CreateRouteRequest from a dict
-create_route_request_form_dict = create_route_request.from_dict(create_route_request_dict)
+create_route_request_from_dict = CreateRouteRequest.from_dict(create_route_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

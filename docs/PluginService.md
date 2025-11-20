@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of PluginService from a JSON string
 plugin_service_instance = PluginService.from_json(json)
 # print the JSON string representation of the object
-print PluginService.to_json()
+print(PluginService.to_json())
 
 # convert the object into a dict
 plugin_service_dict = plugin_service_instance.to_dict()
 # create an instance of PluginService from a dict
-plugin_service_form_dict = plugin_service.from_dict(plugin_service_dict)
+plugin_service_from_dict = PluginService.from_dict(plugin_service_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

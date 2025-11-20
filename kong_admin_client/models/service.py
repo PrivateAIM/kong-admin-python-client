@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from kong_admin_client.models.service_client_certificate import ServiceClientCertificate
 from typing import Optional, Set
@@ -49,11 +49,11 @@ class Service(BaseModel):
     write_timeout: Optional[StrictInt] = Field(default=60000, description="The timeout in milliseconds between two successive write operations for transmitting a request to the upstream server.")
     __properties: ClassVar[List[str]] = ["ca_certificates", "client_certificate", "connect_timeout", "created_at", "enabled", "host", "id", "name", "path", "port", "protocol", "read_timeout", "retries", "tags", "tls_verify", "tls_verify_depth", "updated_at", "url", "write_timeout"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

@@ -87,7 +87,9 @@ No authorization required
 
 Delete a Key-set
 
-Delete a Key-set  > Note: This API is not available in DB-less mode.
+Delete a Key-set
+
+> Note: This API is not available in DB-less mode.
 
 ### Example
 
@@ -221,7 +223,8 @@ No authorization required
 
 List all Key-sets
 
-Retrieve a list of all Key-sets in the system. A Key Set object holds a collection of asymmetric key objects. This entity allows to logically group keys by their purpose. Key Sets can be both tagged and filtered by tags. 
+Retrieve a list of all Key-sets in the system. A Key Set object holds a collection of asymmetric key objects. This entity allows to logically group keys by their purpose. Key Sets can be both tagged and filtered by tags.
+
 
 ### Example
 
@@ -293,7 +296,17 @@ No authorization required
 
 Update a Key-set
 
-Update a Key-set using ID or name.  > Note: This API is not available in DB-less mode.  Inserts (or replaces) the Key Set under the requested resource with the definition specified in the body. The Key Set will be identified via the name or id attribute.  When the name or id attribute has the structure of a UUID, the Key Set being inserted/replaced will be identified by its id. Otherwise it will be identified by its name.  When creating a new Key Set without specifying id (neither in the URL nor in the body), then it will be auto-generated.  Notice that specifying a name in the URL and a different one in the request body is not allowed.
+Update a Key-set using ID or name.
+
+> Note: This API is not available in DB-less mode.
+
+Inserts (or replaces) the Key Set under the requested resource with the definition specified in the body. The Key Set will be identified via the name or id attribute.
+
+When the name or id attribute has the structure of a UUID, the Key Set being inserted/replaced will be identified by its id. Otherwise it will be identified by its name.
+
+When creating a new Key Set without specifying id (neither in the URL nor in the body), then it will be auto-generated.
+
+Notice that specifying a name in the URL and a different one in the request body is not allowed.
 
 ### Example
 
@@ -366,7 +379,9 @@ No authorization required
 
 Update a Key-set
 
-Update a Key-set using ID or name.  > Note: This API is not available in DB-less mode.
+Update a Key-set using ID or name.
+
+> Note: This API is not available in DB-less mode.
 
 ### Example
 

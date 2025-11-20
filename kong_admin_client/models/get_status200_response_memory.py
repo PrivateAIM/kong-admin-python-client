@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from kong_admin_client.models.get_status200_response_memory_lua_shared_dicts import GetStatus200ResponseMemoryLuaSharedDicts
 from kong_admin_client.models.get_status200_response_memory_workers_lua_vms_inner import GetStatus200ResponseMemoryWorkersLuaVmsInner
@@ -33,11 +33,11 @@ class GetStatus200ResponseMemory(BaseModel):
     workers_lua_vms: Optional[List[GetStatus200ResponseMemoryWorkersLuaVmsInner]] = Field(default=None, description="An array with all workers of the Kong node, each entry contains a `http_allocated_gc` string and a `pid`.")
     __properties: ClassVar[List[str]] = ["lua_shared_dicts", "workers_lua_vms"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -78,9 +78,9 @@ class GetStatus200ResponseMemory(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in workers_lua_vms (list)
         _items = []
         if self.workers_lua_vms:
-            for _item in self.workers_lua_vms:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_workers_lua_vms in self.workers_lua_vms:
+                if _item_workers_lua_vms:
+                    _items.append(_item_workers_lua_vms.to_dict())
             _dict['workers_lua_vms'] = _items
         return _dict
 

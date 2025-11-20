@@ -17,12 +17,12 @@ json = "{}"
 # create an instance of PutDebugClusterControlPlanesNodesLogLevelLogLevel200Response from a JSON string
 put_debug_cluster_control_planes_nodes_log_level_log_level200_response_instance = PutDebugClusterControlPlanesNodesLogLevelLogLevel200Response.from_json(json)
 # print the JSON string representation of the object
-print PutDebugClusterControlPlanesNodesLogLevelLogLevel200Response.to_json()
+print(PutDebugClusterControlPlanesNodesLogLevelLogLevel200Response.to_json())
 
 # convert the object into a dict
 put_debug_cluster_control_planes_nodes_log_level_log_level200_response_dict = put_debug_cluster_control_planes_nodes_log_level_log_level200_response_instance.to_dict()
 # create an instance of PutDebugClusterControlPlanesNodesLogLevelLogLevel200Response from a dict
-put_debug_cluster_control_planes_nodes_log_level_log_level200_response_form_dict = put_debug_cluster_control_planes_nodes_log_level_log_level200_response.from_dict(put_debug_cluster_control_planes_nodes_log_level_log_level200_response_dict)
+put_debug_cluster_control_planes_nodes_log_level_log_level200_response_from_dict = PutDebugClusterControlPlanesNodesLogLevelLogLevel200Response.from_dict(put_debug_cluster_control_planes_nodes_log_level_log_level200_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

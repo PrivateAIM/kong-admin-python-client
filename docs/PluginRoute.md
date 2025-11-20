@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of PluginRoute from a JSON string
 plugin_route_instance = PluginRoute.from_json(json)
 # print the JSON string representation of the object
-print PluginRoute.to_json()
+print(PluginRoute.to_json())
 
 # convert the object into a dict
 plugin_route_dict = plugin_route_instance.to_dict()
 # create an instance of PluginRoute from a dict
-plugin_route_form_dict = plugin_route.from_dict(plugin_route_dict)
+plugin_route_from_dict = PluginRoute.from_dict(plugin_route_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

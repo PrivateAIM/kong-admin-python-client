@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -36,11 +36,11 @@ class CreateCertificateRequest(BaseModel):
     passphrase: Optional[StrictStr] = Field(default=None, description="To load an encrypted private key into Kong, specify the passphrase using this attributKong will decrypt the private key and store it in its database. e. Enterprise Only")
     __properties: ClassVar[List[str]] = ["cert", "key", "cert_alt", "key_alt", "snis", "tags", "passphrase"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,17 +31,17 @@ class Certificate(BaseModel):
     cert: Optional[StrictStr] = Field(default=None, description="PEM-encoded public certificate chain of the SSL key This field is referenceable and can be stored in a vault. References must follow a [specific format](/gateway/latest/plan-and-deploy/security/secrets-management/reference-format).")
     cert_alt: Optional[StrictStr] = Field(default=None, description="PEM-encoded public certificate chain of the alternate SSL key pair. This should only be set if you have both RSA and ECDSA types of certificate available and would like Kong to prefer serving using ECDSA certs.")
     created_at: Optional[StrictInt] = Field(default=None, description="Unix epoch when the resource was created.")
-    id: Optional[StrictStr] = Field(default=None, description="The UUID representation of the certificate object.")
+    id: Optional[UUID] = Field(default=None, description="The UUID representation of the certificate object.")
     key: Optional[StrictStr] = Field(default=None, description="PEM-encoded private key of the SSL key pair. This field is _referenceable_, which means it can be securely stored as a [secret](/gateway/latest/plan-and-deploy/security/secrets-management/getting-started) in a vault. References must follow a [specific format](/gateway/latest/plan-and-deploy/security/secrets-management/reference-format).")
     key_alt: Optional[StrictStr] = Field(default=None, description="PEM-encoded private key of the alternate SSL key pair. This should only be set if you have both RSA and ECDSA types of certificate available and would like Kong to prefer serving using ECDSA certs when client advertises support for it. This field is _referenceable_, which means it can be securely stored as a [secret](/gateway/latest/plan-and-deploy/security/secrets-management/getting-started) in a vault. References must follow a [specific format](/gateway/latest/plan-and-deploy/security/secrets-management/reference-format).")
     tags: Optional[List[StrictStr]] = Field(default=None, description="An optional set of strings associated with the Certificate for grouping and filtering.")
     __properties: ClassVar[List[str]] = ["cert", "cert_alt", "created_at", "id", "key", "key_alt", "tags"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

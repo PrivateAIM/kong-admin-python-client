@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from kong_admin_client.models.upstream_healthchecks_active import UpstreamHealthchecksActive
 from kong_admin_client.models.upstream_healthchecks_passive import UpstreamHealthchecksPassive
@@ -34,11 +34,11 @@ class UpstreamHealthchecks(BaseModel):
     threshold: Optional[Union[StrictFloat, StrictInt]] = 0
     __properties: ClassVar[List[str]] = ["active", "passive", "threshold"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

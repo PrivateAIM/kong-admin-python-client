@@ -230,7 +230,8 @@ No authorization required
 
 Delete a an SNI associated with a Certificate
 
-Delete a an SNI associated with a Certificate using ID or name. 
+Delete a an SNI associated with a Certificate using ID or name.
+
 
 ### Example
 
@@ -656,7 +657,11 @@ No authorization required
 
 Update SNI associated to a certificate
 
-    Update an existing SNI associated with a certificate in the system using the SNI ID or name. The request body should include the fields of the SNI that need to be updated, such as the name, description, or other properties. If the request body contains valid data, the endpoint will update the SNI and return a success response. 
+
+
+
+ Update an existing SNI associated with a certificate in the system using the SNI ID or name. The request body should include the fields of the SNI that need to be updated, such as the name, description, or other properties. If the request body contains valid data, the endpoint will update the SNI and return a success response.
+
 
 ### Example
 
@@ -803,7 +808,14 @@ No authorization required
 
 Upsert an SNI associated with a certificate
 
-Create or Update an SNI associated with a Certificate using ID or name.  Inserts (or replaces) the SNI under the requested resource with the definition specified in the body. The SNI will be identified via the name or id attribute.  When the name or id attribute has the structure of a UUID, the SNI being inserted/replaced will be identified by its id. Otherwise it will be identified by its name.  When creating a new SNI without specifying id (neither in the URL nor in the body), then it will be auto-generated. 
+Create or Update an SNI associated with a Certificate using ID or name.
+
+Inserts (or replaces) the SNI under the requested resource with the definition specified in the body. The SNI will be identified via the name or id attribute.
+
+When the name or id attribute has the structure of a UUID, the SNI being inserted/replaced will be identified by its id. Otherwise it will be identified by its name.
+
+When creating a new SNI without specifying id (neither in the URL nor in the body), then it will be auto-generated.
+
 
 ### Example
 

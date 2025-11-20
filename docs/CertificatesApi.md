@@ -17,7 +17,9 @@ Method | HTTP request | Description
 
 Create a new Certificate
 
-Create a new certificate with the provided details. Use this endpoint to add a new certificate to the system. The request body must include the certificate data and other details required for creating a new certificate.  > Note: This API is not available in DB-less mode.
+Create a new certificate with the provided details. Use this endpoint to add a new certificate to the system. The request body must include the certificate data and other details required for creating a new certificate.
+
+> Note: This API is not available in DB-less mode.
 
 ### Example
 
@@ -87,7 +89,10 @@ No authorization required
 
 Delete a Certificate
 
-Delete a Certificate  >Note: This API is not available in DB-less mode. 
+Delete a Certificate
+
+>Note: This API is not available in DB-less mode.
+
 
 ### Example
 
@@ -293,7 +298,13 @@ No authorization required
 
 Update a Certificate
 
-Update a Certificate  Inserts (or replaces) the certificate under the requested `certificate_id`with the definition specified in the request body. When the `name` or `id` attribute has the structure of a UUID, the certificate being inserted/replaced will be identified by its `id`. Otherwise it will be identified by the `name`.  When creating a new Certificate without specifying `id` (neither in the path or the request body), then it will be auto-generated.  >Note: This API is not available in DB-less mode.
+Update a Certificate
+
+Inserts (or replaces) the certificate under the requested `certificate_id`with the definition specified in the request body. When the `name` or `id` attribute has the structure of a UUID, the certificate being inserted/replaced will be identified by its `id`. Otherwise it will be identified by the `name`.
+
+When creating a new Certificate without specifying `id` (neither in the path or the request body), then it will be auto-generated.
+
+>Note: This API is not available in DB-less mode.
 
 ### Example
 
@@ -366,7 +377,16 @@ No authorization required
 
 Update a Certificate
 
-Update details about the specified certificate using the provided path parameter `certificate_id`.  Inserts (or replaces) the certificate under the requested `certificate_id`with the definition specified in the request body. When the `name` or `id` attribute has the structure of a UUID, the certificate being inserted/replaced will be identified by its `id`. Otherwise it will be identified by the `name`.  When creating a new Certificate without specifying `id` (neither in the path or the request body), then it will be auto-generated.    > Note: This API is not available in DB-less mode. 
+Update details about the specified certificate using the provided path parameter `certificate_id`.
+
+Inserts (or replaces) the certificate under the requested `certificate_id`with the definition specified in the request body. When the `name` or `id` attribute has the structure of a UUID, the certificate being inserted/replaced will be identified by its `id`. Otherwise it will be identified by the `name`.
+
+When creating a new Certificate without specifying `id` (neither in the path or the request body), then it will be auto-generated.
+
+
+
+> Note: This API is not available in DB-less mode.
+
 
 ### Example
 

@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of GetTimers200ResponseStatsTimersMeta from a JSON string
 get_timers200_response_stats_timers_meta_instance = GetTimers200ResponseStatsTimersMeta.from_json(json)
 # print the JSON string representation of the object
-print GetTimers200ResponseStatsTimersMeta.to_json()
+print(GetTimers200ResponseStatsTimersMeta.to_json())
 
 # convert the object into a dict
 get_timers200_response_stats_timers_meta_dict = get_timers200_response_stats_timers_meta_instance.to_dict()
 # create an instance of GetTimers200ResponseStatsTimersMeta from a dict
-get_timers200_response_stats_timers_meta_form_dict = get_timers200_response_stats_timers_meta.from_dict(get_timers200_response_stats_timers_meta_dict)
+get_timers200_response_stats_timers_meta_from_dict = GetTimers200ResponseStatsTimersMeta.from_dict(get_timers200_response_stats_timers_meta_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

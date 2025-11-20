@@ -19,12 +19,12 @@ json = "{}"
 # create an instance of CreateConsumerRequest from a JSON string
 create_consumer_request_instance = CreateConsumerRequest.from_json(json)
 # print the JSON string representation of the object
-print CreateConsumerRequest.to_json()
+print(CreateConsumerRequest.to_json())
 
 # convert the object into a dict
 create_consumer_request_dict = create_consumer_request_instance.to_dict()
 # create an instance of CreateConsumerRequest from a dict
-create_consumer_request_form_dict = create_consumer_request.from_dict(create_consumer_request_dict)
+create_consumer_request_from_dict = CreateConsumerRequest.from_dict(create_consumer_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

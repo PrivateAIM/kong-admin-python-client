@@ -19,12 +19,12 @@ json = "{}"
 # create an instance of CreateRouteRequestHeaders from a JSON string
 create_route_request_headers_instance = CreateRouteRequestHeaders.from_json(json)
 # print the JSON string representation of the object
-print CreateRouteRequestHeaders.to_json()
+print(CreateRouteRequestHeaders.to_json())
 
 # convert the object into a dict
 create_route_request_headers_dict = create_route_request_headers_instance.to_dict()
 # create an instance of CreateRouteRequestHeaders from a dict
-create_route_request_headers_form_dict = create_route_request_headers.from_dict(create_route_request_headers_dict)
+create_route_request_headers_from_dict = CreateRouteRequestHeaders.from_dict(create_route_request_headers_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

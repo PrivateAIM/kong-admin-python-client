@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from kong_admin_client.models.upstream_healthchecks_active_healthy import UpstreamHealthchecksActiveHealthy
 from kong_admin_client.models.upstream_healthchecks_active_unhealthy import UpstreamHealthchecksActiveUnhealthy
@@ -40,11 +40,11 @@ class UpstreamHealthchecksActive(BaseModel):
     unhealthy: Optional[UpstreamHealthchecksActiveUnhealthy] = None
     __properties: ClassVar[List[str]] = ["concurrency", "headers", "healthy", "http_path", "https_sni", "https_verify_certificate", "timeout", "type", "unhealthy"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:

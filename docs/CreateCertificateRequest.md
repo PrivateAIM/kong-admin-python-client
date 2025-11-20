@@ -23,12 +23,12 @@ json = "{}"
 # create an instance of CreateCertificateRequest from a JSON string
 create_certificate_request_instance = CreateCertificateRequest.from_json(json)
 # print the JSON string representation of the object
-print CreateCertificateRequest.to_json()
+print(CreateCertificateRequest.to_json())
 
 # convert the object into a dict
 create_certificate_request_dict = create_certificate_request_instance.to_dict()
 # create an instance of CreateCertificateRequest from a dict
-create_certificate_request_form_dict = create_certificate_request.from_dict(create_certificate_request_dict)
+create_certificate_request_from_dict = CreateCertificateRequest.from_dict(create_certificate_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

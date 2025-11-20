@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of RouteService from a JSON string
 route_service_instance = RouteService.from_json(json)
 # print the JSON string representation of the object
-print RouteService.to_json()
+print(RouteService.to_json())
 
 # convert the object into a dict
 route_service_dict = route_service_instance.to_dict()
 # create an instance of RouteService from a dict
-route_service_form_dict = route_service.from_dict(route_service_dict)
+route_service_from_dict = RouteService.from_dict(route_service_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

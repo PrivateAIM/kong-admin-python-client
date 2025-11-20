@@ -21,12 +21,12 @@ json = "{}"
 # create an instance of UpsertConsumer200ResponseDataInner from a JSON string
 upsert_consumer200_response_data_inner_instance = UpsertConsumer200ResponseDataInner.from_json(json)
 # print the JSON string representation of the object
-print UpsertConsumer200ResponseDataInner.to_json()
+print(UpsertConsumer200ResponseDataInner.to_json())
 
 # convert the object into a dict
 upsert_consumer200_response_data_inner_dict = upsert_consumer200_response_data_inner_instance.to_dict()
 # create an instance of UpsertConsumer200ResponseDataInner from a dict
-upsert_consumer200_response_data_inner_form_dict = upsert_consumer200_response_data_inner.from_dict(upsert_consumer200_response_data_inner_dict)
+upsert_consumer200_response_data_inner_from_dict = UpsertConsumer200ResponseDataInner.from_dict(upsert_consumer200_response_data_inner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

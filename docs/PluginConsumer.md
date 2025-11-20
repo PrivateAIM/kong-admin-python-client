@@ -18,12 +18,12 @@ json = "{}"
 # create an instance of PluginConsumer from a JSON string
 plugin_consumer_instance = PluginConsumer.from_json(json)
 # print the JSON string representation of the object
-print PluginConsumer.to_json()
+print(PluginConsumer.to_json())
 
 # convert the object into a dict
 plugin_consumer_dict = plugin_consumer_instance.to_dict()
 # create an instance of PluginConsumer from a dict
-plugin_consumer_form_dict = plugin_consumer.from_dict(plugin_consumer_dict)
+plugin_consumer_from_dict = PluginConsumer.from_dict(plugin_consumer_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from kong_admin_client.models.route_destinations_inner import RouteDestinationsInner
 from kong_admin_client.models.route_service import RouteService
@@ -52,11 +52,11 @@ class Route(BaseModel):
     updated_at: Optional[StrictInt] = Field(default=None, description="Unix epoch when the resource was last updated.")
     __properties: ClassVar[List[str]] = ["created_at", "destinations", "headers", "hosts", "https_redirect_status_code", "id", "methods", "name", "path_handling", "paths", "preserve_host", "protocols", "regex_priority", "request_buffering", "response_buffering", "service", "snis", "sources", "strip_path", "tags", "updated_at"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -94,9 +94,9 @@ class Route(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in destinations (list)
         _items = []
         if self.destinations:
-            for _item in self.destinations:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_destinations in self.destinations:
+                if _item_destinations:
+                    _items.append(_item_destinations.to_dict())
             _dict['destinations'] = _items
         # override the default output from pydantic by calling `to_dict()` of service
         if self.service:
@@ -104,9 +104,9 @@ class Route(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in sources (list)
         _items = []
         if self.sources:
-            for _item in self.sources:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_sources in self.sources:
+                if _item_sources:
+                    _items.append(_item_sources.to_dict())
             _dict['sources'] = _items
         return _dict
 

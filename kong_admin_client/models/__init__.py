@@ -13,7 +13,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 # import models into model package
 from kong_admin_client.models.acl import ACL
 from kong_admin_client.models.acl_consumer import ACLConsumer
@@ -81,6 +80,7 @@ from kong_admin_client.models.get_timers200_response_stats_sys import GetTimers2
 from kong_admin_client.models.get_timers200_response_stats_timers import GetTimers200ResponseStatsTimers
 from kong_admin_client.models.get_timers200_response_stats_timers_meta import GetTimers200ResponseStatsTimersMeta
 from kong_admin_client.models.get_timers200_response_worker import GetTimers200ResponseWorker
+from kong_admin_client.models.inline_object import InlineObject
 from kong_admin_client.models.key import Key
 from kong_admin_client.models.key_auth import KeyAuth
 from kong_admin_client.models.key_auth_consumer import KeyAuthConsumer
@@ -132,3 +132,4 @@ from kong_admin_client.models.upstream_healthchecks_passive_healthy import Upstr
 from kong_admin_client.models.upstream_healthchecks_passive_unhealthy import UpstreamHealthchecksPassiveUnhealthy
 from kong_admin_client.models.vault import Vault
 from kong_admin_client.models.vault_config import VaultConfig
+
