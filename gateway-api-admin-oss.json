@@ -6975,7 +6975,7 @@
         }
       ]
     },
-    "/services/{service_id_or_name}plugins": {
+    "/services/{service_id_or_name}/plugins": {
       "get": {
         "description": "List all Plugins associated with a service",
         "parameters": [

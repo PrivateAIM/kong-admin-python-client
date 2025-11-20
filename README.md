@@ -141,7 +141,7 @@ Class | Method | HTTP request | Description
 *PluginsApi* | [**create_plugin**](docs/PluginsApi.md#create_plugin) | **POST** /plugins | Create a new Plugin
 *PluginsApi* | [**create_plugin_for_consumer**](docs/PluginsApi.md#create_plugin_for_consumer) | **POST** /consumers/{consumer_username_or_id}/plugins | Create a new Plugin associated with a Consumer
 *PluginsApi* | [**create_plugin_for_route**](docs/PluginsApi.md#create_plugin_for_route) | **POST** /routes/{route_id_or_name}/plugins | Create a new Plugin associated with a route
-*PluginsApi* | [**create_plugin_for_service**](docs/PluginsApi.md#create_plugin_for_service) | **POST** /services/{service_id_or_name}plugins | Create a new Plugin associated with a service
+*PluginsApi* | [**create_plugin_for_service**](docs/PluginsApi.md#create_plugin_for_service) | **POST** /services/{service_id_or_name}/plugins | Create a new Plugin associated with a service
 *PluginsApi* | [**delete_plugin**](docs/PluginsApi.md#delete_plugin) | **DELETE** /plugins/{plugin_id} | Delete a Plugin
 *PluginsApi* | [**delete_plugin_for_a_service**](docs/PluginsApi.md#delete_plugin_for_a_service) | **DELETE** /services/{service_id_or_name}/plugins/{plugin_id} | Delete a plugin associated with a service
 *PluginsApi* | [**delete_plugin_for_consumer**](docs/PluginsApi.md#delete_plugin_for_consumer) | **DELETE** /consumers/{consumer_username_or_id}/plugins/{plugin_id} | Delete a Plugin associated with a Consumer
@@ -150,7 +150,7 @@ Class | Method | HTTP request | Description
 *PluginsApi* | [**fetch_plugin_for_route**](docs/PluginsApi.md#fetch_plugin_for_route) | **GET** /routes/{route_id_or_name}/plugins/{plugin_id} | Fetch a Plugin associated with a route
 *PluginsApi* | [**fetch_plugin_with_a_service**](docs/PluginsApi.md#fetch_plugin_with_a_service) | **GET** /services/{service_id_or_name}/plugins/{plugin_id} | Fetch a Plugin associated with a service
 *PluginsApi* | [**get_plugin**](docs/PluginsApi.md#get_plugin) | **GET** /plugins/{plugin_id} | Fetch a Plugin
-*PluginsApi* | [**get_plugins_for_service**](docs/PluginsApi.md#get_plugins_for_service) | **GET** /services/{service_id_or_name}plugins | List all Plugins associated with a service
+*PluginsApi* | [**get_plugins_for_service**](docs/PluginsApi.md#get_plugins_for_service) | **GET** /services/{service_id_or_name}/plugins | List all Plugins associated with a service
 *PluginsApi* | [**list_plugin**](docs/PluginsApi.md#list_plugin) | **GET** /plugins | List all Plugins
 *PluginsApi* | [**list_plugins_for_consumer**](docs/PluginsApi.md#list_plugins_for_consumer) | **GET** /consumers/{consumer_username_or_id}/plugins | List all plugins associated with a consumer
 *PluginsApi* | [**list_plugins_for_route**](docs/PluginsApi.md#list_plugins_for_route) | **GET** /routes/{route_id_or_name}/plugins | List all Plugins associated with a route

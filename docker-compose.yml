@@ -2,7 +2,7 @@ version: '3'
 
 services:
   openapi_generator:
-    image: openapitools/openapi-generator-cli:latest-release
+    image: openapitools/openapi-generator-cli:v7.3.0
     volumes:
       - .:/local
     user: "1000:1000"
